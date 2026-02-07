@@ -8,6 +8,96 @@ const map = L.map("map").setView([42.9956, -71.4548], 14);
 // expose for ui.js (so we can invalidateSize() after tab switching)
 window.__mttMap = map;
 
+// ---------------------------
+// Locate Me (one-time geolocation; Map tab only)
+// ---------------------------
+let userLocationMarker = null;
+let mapToastTimer = null;
+
+function showMapToast(message) {
+  const el = document.getElementById("map-toast");
+  if (!el) return;
+
+  el.textContent = message || "";
+  el.classList.add("is-visible");
+
+  if (mapToastTimer) clearTimeout(mapToastTimer);
+  mapToastTimer = setTimeout(() => {
+    el.classList.remove("is-visible");
+  }, 2500);
+}
+
+function setUserLocationDot(lat, lng) {
+  const ll = [lat, lng];
+
+  if (!userLocationMarker) {
+    // Single dot only (no accuracy ring)
+    userLocationMarker = L.circleMarker(ll, {
+      radius: 6,
+      stroke: false,
+      fill: true,
+      fillOpacity: 1,
+    }).addTo(map);
+  } else {
+    userLocationMarker.setLatLng(ll);
+  }
+}
+
+function locateOnce() {
+  const btn = document.getElementById("btn-locate");
+
+  if (!navigator.geolocation) {
+    showMapToast("Location is not supported on this device/browser.");
+    return;
+  }
+
+  if (btn) btn.disabled = true;
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const lat = pos.coords.latitude;
+      const lng = pos.coords.longitude;
+
+      setUserLocationDot(lat, lng);
+
+      // Center + zoom to user position (one-time)
+      map.setView([lat, lng], 16);
+
+      if (btn) btn.disabled = false;
+    },
+    (err) => {
+      let msg = "Unable to get your location.";
+      if (err && typeof err.code === "number") {
+        if (err.code === 1) msg = "Location permission denied.";
+        else if (err.code === 2) msg = "Location unavailable.";
+        else if (err.code === 3) msg = "Location request timed out.";
+      }
+
+      showMapToast(msg);
+      if (btn) btn.disabled = false;
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    }
+  );
+}
+
+function initLocateUI() {
+  const btn = document.getElementById("btn-locate");
+  if (!btn) return;
+
+  // Prevent map tap handlers from firing (which would dismiss the card)
+  btn.addEventListener("pointerdown", (e) => e.stopPropagation());
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    locateOnce();
+  });
+}
+
+initLocateUI();
+
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
