@@ -108,10 +108,30 @@
 
       <!-- Existing bottom detail card (unchanged IDs so app.js keeps working) -->
       <div id="card" aria-live="polite">
-        <h2 id="card-name"></h2>
-        <p id="card-address"></p>
-        <p id="card-tags"></p>
-      </div>
+  <div class="card-header">
+    <h2 id="card-name"></h2>
+
+    <button
+      type="button"
+      class="icon-btn fav-btn"
+      id="card-fav"
+      aria-label="Favorite"
+      title="Favorite"
+      aria-pressed="false"
+    >
+      <!-- heart icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <p id="card-address"></p>
+  <p id="card-tags"></p>
+</div>
 
       <!-- FILTERS OVERLAY (stub) -->
       <div id="filters-overlay" class="overlay" hidden>
