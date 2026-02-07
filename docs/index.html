@@ -85,14 +85,34 @@
       <main class="app-main" role="main">
         <!-- MAP VIEW -->
         <section
-          id="view-map"
-          class="view is-active"
-          role="tabpanel"
-          aria-labelledby="tab-map"
-        >
-          <!-- Keep the existing map div id so current Leaflet logic continues to work -->
-          <div id="map"></div>
-        </section>
+  id="view-map"
+  class="view is-active"
+  role="tabpanel"
+  aria-labelledby="tab-map"
+>
+  <!-- Keep the existing map div id so current Leaflet logic continues to work -->
+  <div id="map"></div>
+
+  <!-- Locate Me (Map tab only) -->
+  <button
+    type="button"
+    class="icon-btn locate-btn"
+    id="btn-locate"
+    aria-label="Locate me"
+    title="Locate me"
+  >
+    <!-- crosshair icon -->
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 2a1 1 0 0 1 1 1v1.07A8.002 8.002 0 0 1 19.93 11H21a1 1 0 1 1 0 2h-1.07A8.002 8.002 0 0 1 13 19.93V21a1 1 0 1 1-2 0v-1.07A8.002 8.002 0 0 1 4.07 13H3a1 1 0 1 1 0-2h1.07A8.002 8.002 0 0 1 11 4.07V3a1 1 0 0 1 1-1zm0 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+
+  <!-- Toast (non-blocking, within map view) -->
+  <div id="map-toast" class="map-toast" role="status" aria-live="polite"></div>
+</section>
 
         <!-- LIST VIEW -->
         <section
