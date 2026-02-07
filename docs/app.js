@@ -528,7 +528,42 @@ function initFiltersUI() {
   // Initial sync
   syncControlsFromState();
 }
+// ---------------------------
+// Taco marker icon (Leaflet divIcon w/ inline SVG)
+// ---------------------------
+function getTacoIcon() {
+  const svg = `
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Left shell (back) -->
+      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
+            fill="#F2B84B"
+            stroke="#2B1B10"
+            stroke-width="0.5"
+            stroke-linejoin="round"/>
+      <!-- Ground beef -->
+      <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
+      <!-- Salsa -->
+      <circle cx="12.6" cy="13.4" r="4.05" fill="#C0392B"/>
+      <!-- Lettuce -->
+      <circle cx="14.2" cy="12.0" r="3.645" fill="#4CAF50"/>
+      <!-- Right shell (front), shifted right by 4 -->
+      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
+            transform="translate(4 0)"
+            fill="#F2B84B"
+            stroke="#2B1B10"
+            stroke-width="0.5"
+            stroke-linejoin="round"/>
+    </svg>
+  `;
 
+  return L.divIcon({
+    className: "taco-marker",
+    html: svg,
+    iconSize: [32, 32],
+    // Anchor at the midpoint of the flat bottom edge (the diameter line is at y=20 in the SVG)
+    iconAnchor: [16, 20],
+  });
+}
 // ---------------------------
 // Data load + map markers
 // ---------------------------
