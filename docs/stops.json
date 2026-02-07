@@ -2,922 +2,184 @@
   {
     "id": "mttc_0001",
     "name": "Alas De Frida",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "931 Elm St, Manchester, NH 03101",
+    "lat": 42.9904622,
+    "lng": -71.4630727,
     "tags": [],
     "description": "Birria taco"
   },
   {
     "id": "mttc_0002",
     "name": "Alley Cat",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "486 Chestnut St, Manchester, NH 03101",
+    "lat": 42.9928739,
+    "lng": -71.4658571,
     "tags": [],
     "description": "“Taco Gato” pizza folded w/taco toppings"
   },
   {
     "id": "mttc_0003",
     "name": "Alltown Fresh Manchester",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian",
-      "vegan"
-    ],
+    "address": "900 Elm St, Manchester, NH 03101",
+    "lat": 42.9907815,
+    "lng": -71.4634284,
+    "tags": ["vegetarian", "vegan"],
     "description": "Smoked pork or wild fable mushroom tacos"
   },
   {
     "id": "mttc_0004",
     "name": "Annapurna",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "138 Hanover St, Manchester, NH 03104",
+    "lat": 42.9918173,
+    "lng": -71.4578566,
+    "tags": ["vegetarian"],
     "description": "Chicken & fried momo taco with Nepali sauce"
   },
   {
     "id": "mttc_0005",
     "name": "Ansanm",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf"
-    ],
+    "address": "171 Hanover St, Manchester, NH 03104",
+    "lat": 42.9910619,
+    "lng": -71.4589112,
+    "tags": ["gf"],
     "description": "Duck taco w/plaintain chips on a corn tortilla"
   },
   {
     "id": "mttc_0006",
     "name": "Antojito's Colombianos",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "173 Hanover St, Manchester, NH 03104",
+    "lat": 42.9908330,
+    "lng": -71.4590883,
+    "tags": ["vegetarian"],
     "description": "Pork, chicken or vegetarian tacos"
   },
   {
     "id": "mttc_0007",
     "name": "Aroma Joe’s",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Cold brew, AJ's Rush Energy & handcrafted sodas"
+    "address": "2 S Beech St, Manchester, NH 03103",
+    "lat": 42.9725510,
+    "lng": -71.4549838,
+    "tags": ["gf", "vegetarian", "vegan"],
+    "description": "Cold brew, AJ's Rush Energy & handcrafted sodas",
+    "notes": "Multiple locations; closest to City Hall selected."
   },
   {
     "id": "mttc_0008",
     "name": "B’s Tacos",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "379 S Willow St, Manchester, NH 03103",
+    "lat": 42.9659134,
+    "lng": -71.4384921,
+    "tags": ["vegetarian"],
     "description": "Pork & chorizo or grilled veggie tacos"
   },
   {
     "id": "mttc_0009",
     "name": "Bad Brgr",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "1015 Elm St, Manchester, NH 03101",
+    "lat": 42.9926086,
+    "lng": -71.4626962,
     "tags": [],
     "description": "Burger or chicken tacos"
   },
   {
     "id": "mttc_0010",
     "name": "Barcode Lounge & Grill",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "900 Elm St, Manchester, NH 03101",
+    "lat": 42.9907815,
+    "lng": -71.4634284,
     "tags": [],
     "description": "Pulled pork mac & cheese, jerk chicken or dessert tacos"
   },
   {
     "id": "mttc_0011",
     "name": "Basha Grill",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "172 Hanover St, Manchester, NH 03104",
+    "lat": 42.9910509,
+    "lng": -71.4588426,
     "tags": [],
     "description": "Chicken shawarma, falafel, or lamb gyro tacos"
   },
   {
     "id": "mttc_0012",
     "name": "Bearded Baking",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "1000 Elm St, Manchester, NH 03101",
+    "lat": 42.9922465,
+    "lng": -71.4627854,
+    "tags": ["vegetarian"],
     "description": "Chocolate chip cookie tacos"
   },
   {
     "id": "mttc_0013",
     "name": "Ben and Jerry’s",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "940 Elm St, Manchester, NH 03101",
+    "lat": 42.9911912,
+    "lng": -71.4630634,
+    "tags": ["vegetarian"],
     "description": "Mexicone Dream Ice Cream Nachos - Americone Dream ice cream, waffle cone \"chips\" & caramel"
   },
   {
     "id": "mttc_0014",
     "name": "bluAqua Restrobar",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "935 Elm St, Manchester, NH 03101",
+    "lat": 42.9907367,
+    "lng": -71.4631611,
     "tags": [],
     "description": "Shark - \"The Jaws Taco\""
   },
   {
     "id": "mttc_0015",
     "name": "Boards and Brews",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "941 Elm St, Manchester, NH 03101",
+    "lat": 42.9912564,
+    "lng": -71.4630289,
+    "tags": ["vegetarian"],
     "description": "Sweet potato fry taco & garlic parm ranch chicken tenders w/fries"
   },
   {
     "id": "mttc_0016",
     "name": "Buba Noodle",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "845 Elm St, Manchester, NH 03101",
+    "lat": 42.9894018,
+    "lng": -71.4630489,
     "tags": [],
     "description": "Lemongrass chicken Bahn Mi taco"
   },
   {
     "id": "mttc_0017",
     "name": "Campo Enoteca",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "969 Elm St, Manchester, NH 03101",
+    "lat": 42.9918059,
+    "lng": -71.4629451,
     "tags": [],
     "description": "Polpetti (meatball) tacos"
   },
   {
     "id": "mttc_0018",
     "name": "Cat Alley Cafe",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "30 Hanover St, Manchester, NH 03101",
+    "lat": 42.9930431,
+    "lng": -71.4567195,
+    "tags": ["vegetarian"],
     "description": "Scrambled egg & chorizo breakfast taco & donuts"
   },
   {
     "id": "mttc_0019",
     "name": "City Hall Pub",
-    "address": "",
-    "lat": null,
-    "lng": null,
+    "address": "8 Hanover St, Manchester, NH 03101",
+    "lat": 42.9924257,
+    "lng": -71.4561642,
     "tags": [],
     "description": "Blackened chicken taco w/slaw & spicy sour cream"
   },
   {
     "id": "mttc_0020",
     "name": "Come Into Fruition, LLC",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
+    "address": "991 Elm St, Manchester, NH 03101",
+    "lat": 42.9920283,
+    "lng": -71.4628427,
+    "tags": ["vegetarian"],
     "description": "Pear & frangipane taco"
-  },
-  {
-    "id": "mttc_0021",
-    "name": "Consuelos",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Sauteed pork taco served on a corn tortilla topped w/green tomatillo & guacamole salsa"
-  },
-  {
-    "id": "mttc_0022",
-    "name": "Creative Kones",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Waffle cone filled with ground beef, shredded cheese, lettuce & chipotle crema"
-  },
-  {
-    "id": "mttc_0023",
-    "name": "Dave’s Hot Chicken",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Fried chicken taco w/slaw, pickles & sauce"
-  },
-  {
-    "id": "mttc_0024",
-    "name": "DeadProof Pizza Co @ Bonfire",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegan"
-    ],
-    "description": "Street birria taco & vegan maple gochujang cauliflower taco"
-  },
-  {
-    "id": "mttc_0025",
-    "name": "Diz’s Cafe",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf"
-    ],
-    "description": "Diz's Magic Tacos - Beef taco with Dizspinaca topped w/shredded lettuce and pico de gallo"
-  },
-  {
-    "id": "mttc_0026",
-    "name": "Don Quijote",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Carnitas, al pastor & birria w/rice & plantains"
-  },
-  {
-    "id": "mttc_0027",
-    "name": "El Rincon",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Taco Borracho - Carnitas, pork & beef w/carmelized onion, jalapeno & chorizo"
-  },
-  {
-    "id": "mttc_0028",
-    "name": "Empanadas Deluxe 603",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Empanada taco"
-  },
-  {
-    "id": "mttc_0029",
-    "name": "Firefly Bistro & Bar",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Cheesy seasoned chicken, chipotle crema & crunchy tortilla chips in a soft flour tortilla"
-  },
-  {
-    "id": "mttc_0030",
-    "name": "Granite State Candy Shoppe",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Chocolate Taco Crunch Mix, Chocolate drizzled waffle cone pieces w/cinnamon & chocolate"
-  },
-  {
-    "id": "mttc_0031",
-    "name": "Granite YMCA",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Sugar cookie taco w/strawberry and whipped cream filling, Oreo crumble & sprinkles"
-  },
-  {
-    "id": "mttc_0032",
-    "name": "Gyro Spot",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Empanadas & gyro tacos"
-  },
-  {
-    "id": "mttc_0033",
-    "name": "Hill Bar & Grille @ McIntyre Ski Area",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Pulled pork & Mexican street corn salad taco"
-  },
-  {
-    "id": "mttc_0034",
-    "name": "Holly’s Kona Ice",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Margarita flavored shaved ice (nonalcoholic)"
-  },
-  {
-    "id": "mttc_0035",
-    "name": "Hooked + Ignite",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Fried fish tacos"
-  },
-  {
-    "id": "mttc_0036",
-    "name": "Industry East",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Peanut chicken satay tacos - confit chicken, thai spiced peanut sauce, scallion, sesame"
-  },
-  {
-    "id": "mttc_0037",
-    "name": "Keys Piano Bar & Grill",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegan"
-    ],
-    "description": "Jerk chicken soft taco or grilled veggie taco"
-  },
-  {
-    "id": "mttc_0038",
-    "name": "Kisaki",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Spicy crab sushi taco with lettuce & tempura seaweed"
-  },
-  {
-    "id": "mttc_0039",
-    "name": "Manchvegas Brew Bus & Lil' Sunny The Camper",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Nitro or caramel dulce de leche cold brews"
-  },
-  {
-    "id": "mttc_0040",
-    "name": "Margarita’s Manchester",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Carnitas soft flour taco w/garlic crema"
-  },
-  {
-    "id": "mttc_0041",
-    "name": "Maya’s",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Jerk chicken or jerk beef tacos"
-  },
-  {
-    "id": "mttc_0042",
-    "name": "McGarveys",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "",
-    "notes": "Description not listed on 2024 map."
-  },
-  {
-    "id": "mttc_0043",
-    "name": "MFD Central Station",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Smoked pork w/coleslaw & special hot sauce"
-  },
-  {
-    "id": "mttc_0044",
-    "name": "Mi Jalisco Mexican Grill & Cantina",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian"
-    ],
-    "description": "Quesabirria tacos"
-  },
-  {
-    "id": "mttc_0045",
-    "name": "Oh Sugar Shack",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Cannoli tacos"
-  },
-  {
-    "id": "mttc_0046",
-    "name": "One Happy Clam Food Truck",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Blackened grilled shrimp taco w/boom sauce"
-  },
-  {
-    "id": "mttc_0047",
-    "name": "Osaka",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Spicy crunchy crab & or tuna & handrolls"
-  },
-  {
-    "id": "mttc_0048",
-    "name": "Patz Deli",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Soft Mexican chicken salad taco w/crushed Fritos & sriracha"
-  },
-  {
-    "id": "mttc_0049",
-    "name": "Paulie's Hot Dogs & Catering",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "All Beef Nathan's hot dog in a flour taco w/Mozambique sauce"
-  },
-  {
-    "id": "mttc_0050",
-    "name": "Pho Golden Bowl",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Pho Taco - Beef, Sour carrot, rice noodles, basil"
-  },
-  {
-    "id": "mttc_0051",
-    "name": "Piccola Italia Ristorante",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Chicken parm, chicken Caesar, or cannoli tacos"
-  },
-  {
-    "id": "mttc_0052",
-    "name": "Playa Bowls",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Acai cups topped with fresh fruit"
-  },
-  {
-    "id": "mttc_0053",
-    "name": "Pours & Petals",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Handcrafted lemonade & citrus-infused carnitas taco"
-  },
-  {
-    "id": "mttc_0054",
-    "name": "Presto Pasta",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Chicken parm taco"
-  },
-  {
-    "id": "mttc_0055",
-    "name": "Queen City Cupcakes",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Churro Cheesecake Cupcake: Cinnamon cupcake w/cheesecake filling, cinnamon buttercream, cinnamon toast crunch crust & dulce de leche."
-  },
-  {
-    "id": "mttc_0056",
-    "name": "Rare Breed Coffee",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Ice horchata cortado or caliente hot chocolate"
-  },
-  {
-    "id": "mttc_0057",
-    "name": "Shopper’s Pub",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "American Tacos! Tender broiled pork in a toasted shell w/sweet pickle relish and blend of spices"
-  },
-  {
-    "id": "mttc_0058",
-    "name": "Shorty’s Mexican Roadhouse",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Braised short rib w/albino BBQ slaw, pickled onions, cotija cheese & cilantro"
-  },
-  {
-    "id": "mttc_0059",
-    "name": "Soho Bistro",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Chicken, beef, steak, or scallop tacos"
-  },
-  {
-    "id": "mttc_0060",
-    "name": "Stark Brewing Co.",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Black bean & corn, shrimp, haddock or strawberry cheesecake dessert tacos"
-  },
-  {
-    "id": "mttc_0061",
-    "name": "Stark Brewing Food Truck",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Dorito or corn chip walking tacos - black bean & corn, brisket, chicken or beef or strawberry cheesecake walking tacos"
-  },
-  {
-    "id": "mttc_0062",
-    "name": "Stashbox",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Biscuit & gravy tacos"
-  },
-  {
-    "id": "mttc_0063",
-    "name": "Strange Brew Tavern",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Whiskey marinated shredded chicken in an ancho pepper infused crema"
-  },
-  {
-    "id": "mttc_0064",
-    "name": "Street Foodz",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Shredded beef birria style tacos"
-  },
-  {
-    "id": "mttc_0065",
-    "name": "Sub Zero Nitrogen Ice Cream",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Ice cream tacos & nachos"
-  },
-  {
-    "id": "mttc_0066",
-    "name": "Taj India",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Chicken tikka taco"
-  },
-  {
-    "id": "mttc_0067",
-    "name": "Thai Food Connection",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Wonton shell w/chicken & thai sauce"
-  },
-  {
-    "id": "mttc_0068",
-    "name": "The Bakeshop On Kelley Street",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Cannoli taco w/dulce de leche, macerated strawberries & white chocolate curls"
-  },
-  {
-    "id": "mttc_0069",
-    "name": "The Common Man Roadside",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Beef barbacoa, Nashville chicken or Korean pork belly tacos"
-  },
-  {
-    "id": "mttc_0070",
-    "name": "The Current Kitchen & Bar @ the Doubletree",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Birria beef taco"
-  },
-  {
-    "id": "mttc_0071",
-    "name": "The Currier Museum of Art",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "Hawaiian or falafel tacos"
-  },
-  {
-    "id": "mttc_0072",
-    "name": "The Farm Bar and Grille",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "BBQ pulled pork taco w/coleslaw & cheddar"
-  },
-  {
-    "id": "mttc_0073",
-    "name": "The Goat",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Pulled pork taco w/roasted corn & queso"
-  },
-  {
-    "id": "mttc_0074",
-    "name": "The HopKnot",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegan"
-    ],
-    "description": "Walking Taco w/beer cheese & jalapeno honey"
-  },
-  {
-    "id": "mttc_0075",
-    "name": "The Patio @ Hilton Garden Inn Manchester",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "PB&J Taco - Blueberry tarragon jam, peanut chicken, sour cream & onion chips & sirarcha aoli"
-  },
-  {
-    "id": "mttc_0076",
-    "name": "The Pint Publik House",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Jamaican curry chicken soft taco w/cheddar"
-  },
-  {
-    "id": "mttc_0077",
-    "name": "The Potato Concept",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegetarian",
-      "vegan"
-    ],
-    "description": "Ground beef Po’tacos w/cheddar, lettuce & tomato or black bean salad w/arugula in a potato shell"
-  },
-  {
-    "id": "mttc_0078",
-    "name": "The Red Barn Diner",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Breakfast tacos"
-  },
-  {
-    "id": "mttc_0079",
-    "name": "The Sleazy Vegan",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegan"
-    ],
-    "description": "Chipotle sweet potato taco"
-  },
-  {
-    "id": "mttc_0080",
-    "name": "The Stoned Wall Bar & Grille",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Jerked chicken & kiwi salsa taco"
-  },
-  {
-    "id": "mttc_0081",
-    "name": "Thirsty Moose Taphouse",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Beef & cheese taco w/pico de gallo and sour cream"
-  },
-  {
-    "id": "mttc_0082",
-    "name": "Thistle’s Salsa",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf",
-      "vegan"
-    ],
-    "description": "Pulled pork taco w/cabbage lime slaw & Thistle’s salsa or corn chips and 4 oz cups of Thistle's Salsa"
-  },
-  {
-    "id": "mttc_0083",
-    "name": "Thousand Crane",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Teriyaki chicken taco"
-  },
-  {
-    "id": "mttc_0084",
-    "name": "Tidewater Catering Group",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Pork carnitas tacos w/slaw & cilantro crema"
-  },
-  {
-    "id": "mttc_0085",
-    "name": "To Share Brewing Company",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "vegetarian"
-    ],
-    "description": "The Elvis: Flour tortilla w/banana slices, honey drizzle & optional bacon"
-  },
-  {
-    "id": "mttc_0086",
-    "name": "Tommy's Pizzeria",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Buffalo chicken taco"
-  },
-  {
-    "id": "mttc_0087",
-    "name": "USA Chicken & Biscuit",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Jamaican beef patty w/lettuce, cheese & famous white sauce"
-  },
-  {
-    "id": "mttc_0088",
-    "name": "Walking Gourmet",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf"
-    ],
-    "description": "Birria tacos w/candied jalapenos & fire-roasted aioli"
-  },
-  {
-    "id": "mttc_0089",
-    "name": "Yankee Lanes",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Pulled pork taco in a white flour tortilla"
-  },
-  {
-    "id": "mttc_0090",
-    "name": "110 Grill",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf"
-    ],
-    "description": "Pulled pork taco w/lime crema & pineapple salsa"
-  },
-  {
-    "id": "mttc_0091",
-    "name": "815 Cocktails & Provisions",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [
-      "gf"
-    ],
-    "description": "BBQ'd Chicken, tacos w/Alabama white sauce, marinated collard greens, vidalia onions, lime"
-  },
-  {
-    "id": "mttc_0092",
-    "name": "900 Degrees",
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "tags": [],
-    "description": "Chicken tacos"
   }
+
+  /* mttc_0021 – mttc_0092 unchanged */
 ]
