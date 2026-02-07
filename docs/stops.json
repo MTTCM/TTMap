@@ -273,5 +273,77 @@
   "lng": -71.4630890,
   "tags": ["vegetarian"],
   "description": "Chocolate Taco Crunch Mix, Chocolate drizzled waffle cone pieces w/cinnamon & chocolate"
-}
+},
+[
+  {
+    "id": "mttc_0031",
+    "address": "30 Mechanic St, Manchester, NH 03101",
+    "lat": 42.9922,
+    "lng": -71.463988,
+    "notes": "Coordinates from YMCA.org listing for YMCA of Downtown Manchester"
+  },
+  {
+    "id": "mttc_0032",
+    "address": "1073 Elm St, Manchester, NH 03101",
+    "lat": 42.9933259,
+    "lng": -71.4628624,
+    "notes": "Gyro Spot Manchester location per their website; coordinates from LatLong.net"
+  },
+  {
+    "id": "mttc_0033",
+    "address": "50 Chalet Ct, Manchester, NH 03104",
+    "lat": null,
+    "lng": null,
+    "notes": "Hill Bar & Grille @ McIntyre / McIntyre Ski Area: need manual geocode for exact entrance/food-service area"
+  },
+  {
+    "id": "mttc_0034",
+    "address": null,
+    "lat": null,
+    "lng": null,
+    "notes": "Holly's Kona Ice appears to be a mobile vendor; no stable Manchester street address found for pin placement"
+  },
+  {
+    "id": "mttc_0035",
+    "address": "110 Hanover St, Manchester, NH 03101",
+    "lat": 42.9910466,
+    "lng": -71.4607915,
+    "notes": "Coordinates from LatLong.net for Hooked Seafood Restaurant"
+  },
+  {
+    "id": "mttc_0036",
+    "address": "374 Pickering St, Manchester, NH 03104",
+    "lat": null,
+    "lng": null,
+    "notes": "Address confirmed by MapQuest; coordinates not reliably extractable from sources pulled"
+  },
+  {
+    "id": "mttc_0037",
+    "address": "28 Hanover St, Manchester, NH 03101",
+    "lat": null,
+    "lng": null,
+    "notes": "Address confirmed by MapQuest; coordinates not reliably extractable from sources pulled"
+  },
+  {
+    "id": "mttc_0038",
+    "address": "1087 Elm St, Manchester, NH 03101",
+    "lat": null,
+    "lng": null,
+    "notes": "Keys Piano Bar & Grill listed at this address (permanently closed); need manual geocode for exact unit pin"
+  },
+  {
+    "id": "mttc_0039",
+    "address": "641 Elm St, Manchester, NH 03101",
+    "lat": null,
+    "lng": null,
+    "notes": "Kisaki address confirmed; still need coordinate source/geocode"
+  },
+  {
+    "id": "mttc_0040",
+    "address": "1037 Elm St, Manchester, NH 03101",
+    "lat": null,
+    "lng": null,
+    "notes": "Margaritas: if you already filled this in earlier chunks, keep your existing values; otherwise needs geocode"
+  }
+]
 ]
