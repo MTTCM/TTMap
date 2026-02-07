@@ -1,6 +1,10 @@
 // Manchester, NH center
 const map = L.map("map").setView([42.9956, -71.4548], 14);
 
+// expose for ui.js (so we can invalidateSize() after tab switching)
+window.__mttMap = map;
+
+
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
