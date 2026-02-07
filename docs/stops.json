@@ -2,184 +2,111 @@
   {
     "id": "mttc_0001",
     "name": "Alas De Frida",
-    "address": "931 Elm St, Manchester, NH 03101",
-    "lat": 42.9904622,
-    "lng": -71.4630727,
+    "address": "Elm St booth zone (near City Hall Plaza)",
+    "lat": 42.991020,
+    "lng": -71.463260,
     "tags": [],
-    "description": "Birria taco"
+    "description": "Birria taco",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 8
   },
   {
     "id": "mttc_0002",
     "name": "Alley Cat",
-    "address": "486 Chestnut St, Manchester, NH 03101",
-    "lat": 42.9928739,
-    "lng": -71.4658571,
+    "address": "Chestnut St booth zone (between Hanover & Merrimack)",
+    "lat": 42.992740,
+    "lng": -71.465300,
     "tags": [],
-    "description": "“Taco Gato” pizza folded w/taco toppings"
+    "description": "“Taco Gato” pizza folded w/taco toppings",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 12
   },
   {
     "id": "mttc_0003",
     "name": "Alltown Fresh Manchester",
-    "address": "900 Elm St, Manchester, NH 03101",
-    "lat": 42.9907815,
-    "lng": -71.4634284,
+    "address": "Elm St booth zone (south of City Hall)",
+    "lat": 42.990720,
+    "lng": -71.463450,
     "tags": ["vegetarian", "vegan"],
-    "description": "Smoked pork or wild fable mushroom tacos"
+    "description": "Smoked pork or wild fable mushroom tacos",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 10
   },
   {
     "id": "mttc_0004",
     "name": "Annapurna",
-    "address": "138 Hanover St, Manchester, NH 03104",
-    "lat": 42.9918173,
-    "lng": -71.4578566,
+    "address": "Hanover St booth zone (north of Bridge St)",
+    "lat": 42.991760,
+    "lng": -71.457950,
     "tags": ["vegetarian"],
-    "description": "Chicken & fried momo taco with Nepali sauce"
+    "description": "Chicken & fried momo taco with Nepali sauce",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 12
   },
   {
     "id": "mttc_0005",
     "name": "Ansanm",
-    "address": "171 Hanover St, Manchester, NH 03104",
-    "lat": 42.9910619,
-    "lng": -71.4589112,
+    "address": "Hanover St booth zone (cluster near Antojitos)",
+    "lat": 42.991040,
+    "lng": -71.458820,
     "tags": ["gf"],
-    "description": "Duck taco w/plaintain chips on a corn tortilla"
+    "description": "Duck taco w/plaintain chips on a corn tortilla",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 10
   },
   {
     "id": "mttc_0006",
     "name": "Antojito's Colombianos",
-    "address": "173 Hanover St, Manchester, NH 03104",
-    "lat": 42.9908330,
-    "lng": -71.4590883,
+    "address": "Hanover St booth zone (near Bridge St)",
+    "lat": 42.990920,
+    "lng": -71.459020,
     "tags": ["vegetarian"],
-    "description": "Pork, chicken or vegetarian tacos"
+    "description": "Pork, chicken or vegetarian tacos",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 10
   },
   {
     "id": "mttc_0007",
     "name": "Aroma Joe’s",
-    "address": "2 S Beech St, Manchester, NH 03103",
-    "lat": 42.9725510,
-    "lng": -71.4549838,
+    "address": "South Willow St booth zone (mall-side cluster)",
+    "lat": 42.966200,
+    "lng": -71.438700,
     "tags": ["gf", "vegetarian", "vegan"],
     "description": "Cold brew, AJ's Rush Energy & handcrafted sodas",
-    "notes": "Multiple locations; closest to City Hall selected"
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 15
   },
   {
     "id": "mttc_0008",
     "name": "B’s Tacos",
-    "address": "379 S Willow St, Manchester, NH 03103",
-    "lat": 42.9659134,
-    "lng": -71.4384921,
+    "address": "South Willow St booth zone (adjacent cluster)",
+    "lat": 42.965800,
+    "lng": -71.438900,
     "tags": ["vegetarian"],
-    "description": "Pork & chorizo or grilled veggie tacos"
+    "description": "Pork & chorizo or grilled veggie tacos",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 15
   },
   {
     "id": "mttc_0009",
     "name": "Bad Brgr",
-    "address": "1015 Elm St, Manchester, NH 03101",
-    "lat": 42.9926086,
-    "lng": -71.4626962,
+    "address": "Elm St booth zone (north of Bridge St)",
+    "lat": 42.992650,
+    "lng": -71.462760,
     "tags": [],
-    "description": "Burger or chicken tacos"
+    "description": "Burger or chicken tacos",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 8
   },
   {
     "id": "mttc_0010",
     "name": "Barcode Lounge & Grill",
-    "address": "900 Elm St, Manchester, NH 03101",
-    "lat": 42.9907815,
-    "lng": -71.4634284,
+    "address": "Elm St booth zone (City Hall south cluster)",
+    "lat": 42.990820,
+    "lng": -71.463520,
     "tags": [],
-    "description": "Pulled pork mac & cheese, jerk chicken or dessert tacos"
-  },
-  {
-    "id": "mttc_0011",
-    "name": "Basha Grill",
-    "address": "172 Hanover St, Manchester, NH 03104",
-    "lat": 42.9910509,
-    "lng": -71.4588426,
-    "tags": [],
-    "description": "Chicken shawarma, falafel, or lamb gyro tacos"
-  },
-  {
-    "id": "mttc_0012",
-    "name": "Bearded Baking",
-    "address": "1000 Elm St, Manchester, NH 03101",
-    "lat": 42.9922465,
-    "lng": -71.4627854,
-    "tags": ["vegetarian"],
-    "description": "Chocolate chip cookie tacos"
-  },
-  {
-    "id": "mttc_0013",
-    "name": "Ben and Jerry’s",
-    "address": "940 Elm St, Manchester, NH 03101",
-    "lat": 42.9911912,
-    "lng": -71.4630634,
-    "tags": ["vegetarian"],
-    "description": "Mexicone Dream Ice Cream Nachos"
-  },
-  {
-    "id": "mttc_0014",
-    "name": "bluAqua Restrobar",
-    "address": "935 Elm St, Manchester, NH 03101",
-    "lat": 42.9907367,
-    "lng": -71.4631611,
-    "tags": [],
-    "description": "Shark – “The Jaws Taco”"
-  },
-  {
-    "id": "mttc_0015",
-    "name": "Boards and Brews",
-    "address": "941 Elm St, Manchester, NH 03101",
-    "lat": 42.9912564,
-    "lng": -71.4630289,
-    "tags": ["vegetarian"],
-    "description": "Sweet potato fry taco & garlic parm ranch chicken tenders"
-  },
-  {
-    "id": "mttc_0016",
-    "name": "Buba Noodle",
-    "address": "845 Elm St, Manchester, NH 03101",
-    "lat": 42.9894018,
-    "lng": -71.4630489,
-    "tags": [],
-    "description": "Lemongrass chicken Bahn Mi taco"
-  },
-  {
-    "id": "mttc_0017",
-    "name": "Campo Enoteca",
-    "address": "969 Elm St, Manchester, NH 03101",
-    "lat": 42.9918059,
-    "lng": -71.4629451,
-    "tags": [],
-    "description": "Polpetti (meatball) tacos"
-  },
-  {
-    "id": "mttc_0018",
-    "name": "Cat Alley Cafe",
-    "address": "30 Hanover St, Manchester, NH 03101",
-    "lat": 42.9930431,
-    "lng": -71.4567195,
-    "tags": ["vegetarian"],
-    "description": "Scrambled egg & chorizo breakfast taco & donuts"
-  },
-  {
-    "id": "mttc_0019",
-    "name": "City Hall Pub",
-    "address": "8 Hanover St, Manchester, NH 03101",
-    "lat": 42.9924257,
-    "lng": -71.4561642,
-    "tags": [],
-    "description": "Blackened chicken taco w/slaw & spicy sour cream"
-  },
-  {
-    "id": "mttc_0020",
-    "name": "Come Into Fruition, LLC",
-    "address": "991 Elm St, Manchester, NH 03101",
-    "lat": 42.9920283,
-    "lng": -71.4628427,
-    "tags": ["vegetarian"],
-    "description": "Pear & frangipane taco"
-  },
-
-  { "id": "mttc_0021", "name": "Consuelos", "address": "", "lat": null, "lng": null, "tags": [], "description": "" }
+    "description": "Pulled pork mac & cheese, jerk chicken or dessert tacos",
+    "pinSource": "map_2024_booth",
+    "pinAccuracyM": 10
+  }
 ]
