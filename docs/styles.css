@@ -432,3 +432,14 @@ hr {
 button {
   -webkit-tap-highlight-color: transparent;
 }
+/* Taco marker (Leaflet divIcon with inline SVG) */
+.leaflet-div-icon.taco-marker {
+  background: transparent;
+  border: 0;
+}
+
+.taco-marker svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
