@@ -14,6 +14,59 @@ const cardName = document.getElementById("card-name");
 const cardAddress = document.getElementById("card-address");
 const cardTags = document.getElementById("card-tags");
 
+const listEl = document.getElementById("list");
+
+function renderList(stops) {
+  if (!listEl) return;
+
+  // Basic rendering; no filtering logic here yet
+  listEl.innerHTML = "";
+
+  // Optional: simple sort by name to make it nice
+  const sorted = [...stops].sort((a, b) =>
+    (a.name || "").localeCompare(b.name || "")
+  );
+
+  for (const stop of sorted) {
+    const item = document.createElement("div");
+    item.className = "list-item";
+
+    const title = document.createElement("div");
+    title.className = "list-item-title";
+    title.textContent = stop.name || "(Unnamed stop)";
+
+    const desc = document.createElement("div");
+    desc.className = "list-item-desc";
+    desc.textContent = stop.description || "";
+
+    const meta = document.createElement("div");
+    meta.className = "list-item-meta";
+
+    // Address (if present)
+    if (stop.address) {
+      const addr = document.createElement("span");
+      addr.textContent = stop.address;
+      meta.appendChild(addr);
+    }
+
+    // Tags (if present)
+    if (Array.isArray(stop.tags) && stop.tags.length) {
+      for (const t of stop.tags) {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = t;
+        meta.appendChild(tag);
+      }
+    }
+
+    item.appendChild(title);
+    if (desc.textContent) item.appendChild(desc);
+    if (meta.childNodes.length) item.appendChild(meta);
+
+    listEl.appendChild(item);
+  }
+}
+
 function showCard(stop) {
   cardName.textContent = stop.name || "";
   cardAddress.textContent = stop.address || "";
