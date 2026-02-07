@@ -557,12 +557,12 @@ function getTacoIcon() {
   `;
 
   return L.divIcon({
-    className: "taco-marker",
-    html: svg,
-    iconSize: [32, 32],
-    // Anchor at the midpoint of the flat bottom edge (the diameter line is at y=20 in the SVG)
-    iconAnchor: [16, 20],
-  });
+  className: "taco-marker",
+  html: svg,
+  iconSize: [48, 48],
+  // anchor scales proportionally with size
+  iconAnchor: [24, 30],
+});
 }
 // ---------------------------
 // Data load + map markers
