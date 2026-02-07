@@ -11,37 +11,228 @@
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
 
-    <style>
-      html, body { height: 100%; margin: 0; }
-      #map { height: 100%; width: 100%; }
-
-      /* Simple bottom detail card */
-      #card {
-        position: fixed;
-        left: 0; right: 0; bottom: 0;
-        background: #fff;
-        border-top: 1px solid #ddd;
-        padding: 12px 16px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,.15);
-        display: none;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        z-index: 9999;
-      }
-      #card h2 { margin: 0 0 4px; font-size: 16px; }
-      #card p { margin: 0; font-size: 14px; color: #444; }
-    </style>
+    <!-- App styles -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
-    <div id="map"></div>
+    <div class="app" id="app">
+      <header class="app-header" role="banner">
+        <div class="header-left">
+          <div class="app-title" aria-label="Site title">MTT Map</div>
+        </div>
 
-    <div id="card">
-      <h2 id="card-name"></h2>
-      <p id="card-address"></p>
-      <p id="card-tags"></p>
+        <nav class="tabs" role="tablist" aria-label="Views">
+          <button
+            type="button"
+            class="tab is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="view-map"
+            id="tab-map"
+            data-view="map"
+          >
+            Map
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="view-list"
+            id="tab-list"
+            data-view="list"
+          >
+            List
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            class="icon-btn"
+            id="btn-filters"
+            aria-label="Filters"
+            title="Filters"
+          >
+            <!-- simple funnel-ish icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M3 5h18l-7 8v5l-4 2v-7L3 5z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="icon-btn"
+            id="btn-about"
+            aria-label="About"
+            title="About"
+          >
+            <!-- info icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm-1-8.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-main" role="main">
+        <!-- MAP VIEW -->
+        <section
+          id="view-map"
+          class="view is-active"
+          role="tabpanel"
+          aria-labelledby="tab-map"
+        >
+          <!-- Keep the existing map div id so current Leaflet logic continues to work -->
+          <div id="map"></div>
+        </section>
+
+        <!-- LIST VIEW (stub) -->
+        <section
+          id="view-list"
+          class="view"
+          role="tabpanel"
+          aria-labelledby="tab-list"
+          hidden
+        >
+          <div class="list-stub">
+            <h2>List</h2>
+            <p>
+              List view layout stub. (No dataset/list logic changes in this
+              conversation.)
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Existing bottom detail card (unchanged IDs so app.js keeps working) -->
+      <div id="card" aria-live="polite">
+        <h2 id="card-name"></h2>
+        <p id="card-address"></p>
+        <p id="card-tags"></p>
+      </div>
+
+      <!-- FILTERS OVERLAY (stub) -->
+      <div id="filters-overlay" class="overlay" hidden>
+        <div class="overlay-backdrop" data-close="filters"></div>
+        <section
+          class="sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Filters"
+        >
+          <div class="sheet-header">
+            <div class="sheet-title">Filters</div>
+            <button
+              type="button"
+              class="icon-btn"
+              data-close="filters"
+              aria-label="Close filters"
+              title="Close"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="sheet-body">
+            <p class="muted">
+              Filter UI stub (one tap away). When you wire this up later, keep
+              filter state global (shared by Map + List) and don’t reset on tab
+              switch.
+            </p>
+
+            <div class="filter-row">
+              <label class="chip">
+                <input type="checkbox" disabled />
+                <span>Vegetarian</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" disabled />
+                <span>Vegan</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" disabled />
+                <span>GF</span>
+              </label>
+            </div>
+
+            <button type="button" class="primary-btn" disabled>
+              Apply (stub)
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ABOUT SCREEN -->
+      <div id="about-overlay" class="overlay" hidden>
+        <section
+          class="about"
+          role="dialog"
+          aria-modal="true"
+          aria-label="About"
+        >
+          <header class="about-header">
+            <button
+              type="button"
+              class="icon-btn"
+              id="btn-about-close"
+              aria-label="Close about"
+              title="Close"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <div class="about-title">About</div>
+            <div class="about-spacer" aria-hidden="true"></div>
+          </header>
+
+          <div class="about-body">
+            <p>
+              A quick, unofficial map/list view for the same dataset.
+            </p>
+
+            <p class="muted">
+              Unofficial: this site is not affiliated with any event organizers.
+              Data may be incomplete or out of date.
+            </p>
+
+            <p>
+              Contact:
+              <a href="mailto:your-email@example.com">your-email@example.com</a>
+            </p>
+
+            <hr />
+
+            <p class="muted">
+              Credits: OpenStreetMap contributors (map tiles), Leaflet (map
+              library).
+            </p>
+          </div>
+        </section>
+
+        <!-- optional tap-outside close (kept conservative; comment out if you want strict close-only) -->
+        <div class="overlay-backdrop" data-close="about"></div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="./app.js"></script>
+    <script src="./ui.js"></script>
   </body>
 </html>
