@@ -179,7 +179,36 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
 }
 #card h2 { margin: 0 0 4px; font-size: 16px; }
 #card p { margin: 0; font-size: 14px; color: #444; }
+/* Favorites */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
+#card h2 { margin: 0; font-size: 16px; }
+
+.fav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.fav-btn.is-fav {
+  color: #e0245e;
+}
+
+/* List row header with favorite button */
+.list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.list-item-title {
+  margin: 0; /* override earlier margin so header layout is clean */
+}
 /* Overlays */
 .overlay[hidden] { display: none; }
 
