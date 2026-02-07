@@ -120,6 +120,50 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
 }
 .muted { color: var(--muted); }
 
+/* List view */
+.list {
+  height: 100%;
+  overflow: auto;
+  padding: 10px 10px 90px; /* bottom padding so it doesn't feel cramped */
+  background: #fff;
+}
+
+.list-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 10px 0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+.list-item-title {
+  font-weight: 800;
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.list-item-desc {
+  margin: 0 0 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+.list-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #fafafa;
+  font-weight: 600;
+}
+
 /* Bottom detail card (kept from original, slightly adjusted z-index to sit above map/overlays if needed) */
 #card {
   position: fixed;
