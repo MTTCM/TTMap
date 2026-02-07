@@ -1,4 +1,4 @@
-// Manchester, NH center
+o// Manchester, NH center
 const map = L.map("map").setView([42.9956, -71.4548], 14);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -22,7 +22,10 @@ fetch("./stops.json")
   .then((stops) => {
     stops.forEach((stop) => {
       const marker = L.marker([stop.lat, stop.lng]).addTo(map);
-      marker.on("click", () => showCard(stop));
+      marker.on("click", (e) => {
+  L.DomEvent.stopPropagation(e);
+  showCard(stop);
+});
     });
   })
   .catch((err) => {
