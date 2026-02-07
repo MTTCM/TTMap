@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sample-1",
+    "name": "Sample Stop 1",
+    "address": "Manchester, NH",
+    "lat": 42.9956,
+    "lng": -71.4548,
+    "tags": ["tacos"]
+  },
+  {
+    "id": "sample-2",
+    "name": "Sample Stop 2",
+    "address": "Manchester, NH",
+    "lat": 42.9905,
+    "lng": -71.4632,
+    "tags": ["birria"]
+  }
+]
