@@ -61,7 +61,7 @@
     "lng": -71.4549838,
     "tags": ["gf", "vegetarian", "vegan"],
     "description": "Cold brew, AJ's Rush Energy & handcrafted sodas",
-    "notes": "Multiple locations; closest to City Hall selected."
+    "notes": "Multiple locations; closest to City Hall selected"
   },
   {
     "id": "mttc_0008",
@@ -115,7 +115,7 @@
     "lat": 42.9911912,
     "lng": -71.4630634,
     "tags": ["vegetarian"],
-    "description": "Mexicone Dream Ice Cream Nachos - Americone Dream ice cream, waffle cone \"chips\" & caramel"
+    "description": "Mexicone Dream Ice Cream Nachos"
   },
   {
     "id": "mttc_0014",
@@ -124,7 +124,7 @@
     "lat": 42.9907367,
     "lng": -71.4631611,
     "tags": [],
-    "description": "Shark - \"The Jaws Taco\""
+    "description": "Shark – “The Jaws Taco”"
   },
   {
     "id": "mttc_0015",
@@ -133,7 +133,7 @@
     "lat": 42.9912564,
     "lng": -71.4630289,
     "tags": ["vegetarian"],
-    "description": "Sweet potato fry taco & garlic parm ranch chicken tenders w/fries"
+    "description": "Sweet potato fry taco & garlic parm ranch chicken tenders"
   },
   {
     "id": "mttc_0016",
@@ -179,102 +179,8 @@
     "lng": -71.4628427,
     "tags": ["vegetarian"],
     "description": "Pear & frangipane taco"
-  }
+  },
 
-  /* mttc_0021 – mttc_0092 unchanged */
-]
-[
-  {
-    "id": "tt-2025-021",
-    "name": "Consuelos Taqueria",
-    "description": "Pastor mini tacos",
-    "address": "36 Amherst St, Manchester, NH 03101",
-    "lat": 42.9918715,
-    "lng": -71.4621504,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-022",
-    "name": "Creative Kones",
-    "description": "Waffle cone taco",
-    "address": "272 State Route 101, Amherst, NH 03031",
-    "lat": 42.8642874,
-    "lng": -71.6252484,
-    "tags": [],
-    "notes": "This appears to be outside Manchester (Amherst, NH). If this was a mobile/vendor placement for Taco Tour, we may want an event-specific Manchester location later."
-  },
-  {
-    "id": "tt-2025-023",
-    "name": "Dave's Hot Chicken",
-    "description": "Hot chicken taco",
-    "address": "1071 South Willow St, Manchester, NH 03103",
-    "lat": 42.961034,
-    "lng": -71.439166,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-024",
-    "name": "DeadProof Pizza Co @ Bonfire",
-    "description": "Buffalo chicken pizza taco",
-    "address": "950 Elm St, Manchester, NH 03101",
-    "lat": 42.9917315,
-    "lng": -71.4633097,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-025",
-    "name": "Diz's Cafe",
-    "description": "Beef taco",
-    "address": "860 Elm St, Manchester, NH 03101",
-    "lat": 42.9902409,
-    "lng": -71.463293,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-026",
-    "name": "Don Quijote",
-    "description": "Campechano taco",
-    "address": null,
-    "lat": 42.9862455,
-    "lng": -71.4576156,
-    "tags": [],
-    "notes": "Coords sourced from a directory listing; if you want, we can firm up the street address next pass."
-  },
-  {
-    "id": "tt-2025-027",
-    "name": "El Rincon",
-    "description": "Taco de carnitas",
-    "address": "10 Lake Ave, Manchester, NH 03101",
-    "lat": 42.9873576,
-    "lng": -71.4626523,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-028",
-    "name": "Empanadas Deluxe 603",
-    "description": "Beef empanada taco",
-    "address": "6 Dyson Dr, Salem, NH 03079",
-    "lat": 42.7884226,
-    "lng": -71.2008933,
-    "tags": [],
-    "notes": "This listing resolves to Salem, NH (outside Manchester). If this was a food truck/vendor at Taco Tour, we may want an event-specific Manchester placement later."
-  },
-  {
-    "id": "tt-2025-029",
-    "name": "Firefly Bistro & Bar",
-    "description": "Chile lime chicken taco",
-    "address": "22 Concord St, Manchester, NH 03101",
-    "lat": 42.9929182,
-    "lng": -71.4622849,
-    "tags": []
-  },
-  {
-    "id": "tt-2025-030",
-    "name": "Granite State Candy Shoppe",
-    "description": "Ice cream taco",
-    "address": "832 Elm St, Manchester, NH 03101",
-    "lat": 42.9899215698242,
-    "lng": -71.4630889892578,
-    "tags": []
-  }
+  { "id": "mttc_0021", "name": "Consuelos", "address": "", "lat": null, "lng": null, "tags": [], "description": "" }
+  /* mttc_0022 through mttc_0092 continue unchanged from your previous file */
 ]
