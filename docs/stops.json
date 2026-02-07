@@ -276,73 +276,98 @@
 },
   {
     "id": "mttc_0031",
+    "name": "Granite YMCA",
     "address": "30 Mechanic St, Manchester, NH 03101",
-    "lat": 42.9922,
-    "lng": -71.463988,
-    "notes": "Coordinates from YMCA.org listing for YMCA of Downtown Manchester"
+    "lat": 42.9922000,
+    "lng": -71.4639880,
+    "tags": ["vegetarian"],
+    "description": "Sugar cookie taco w/strawberry and whipped cream filling, Oreo crumble & sprinkles"
   },
   {
     "id": "mttc_0032",
+    "name": "Gyro Spot",
     "address": "1073 Elm St, Manchester, NH 03101",
     "lat": 42.9933259,
     "lng": -71.4628624,
-    "notes": "Gyro Spot Manchester location per their website; coordinates from LatLong.net"
+    "tags": [],
+    "description": "Empanadas & gyro tacos"
   },
   {
     "id": "mttc_0033",
-    "address": "50 Chalet Ct, Manchester, NH 03104",
-    "lat": null,
-    "lng": null,
-    "notes": "Hill Bar & Grille @ McIntyre / McIntyre Ski Area: need manual geocode for exact entrance/food-service area"
+    "name": "Hill Bar & Grille @ McIntyre Ski Area",
+    "address": "50 Chalet Way, Manchester, NH 03104",
+    "lat": 43.0042507,
+    "lng": -71.4389555,
+    "tags": [],
+    "description": "Pulled pork & Mexican street corn salad taco",
+    "notes": "Located at McIntyre Ski Area; pin placed at main lodge address"
   },
   {
     "id": "mttc_0034",
-    "address": null,
+    "name": "Holly’s Kona Ice",
+    "address": "",
     "lat": null,
     "lng": null,
-    "notes": "Holly's Kona Ice appears to be a mobile vendor; no stable Manchester street address found for pin placement"
+    "tags": ["gf", "vegetarian", "vegan"],
+    "description": "Margarita flavored shaved ice (nonalcoholic)",
+    "notes": "Mobile vendor; no fixed Manchester address"
   },
   {
     "id": "mttc_0035",
+    "name": "Hooked + Ignite",
     "address": "110 Hanover St, Manchester, NH 03101",
     "lat": 42.9910466,
     "lng": -71.4607915,
-    "notes": "Coordinates from LatLong.net for Hooked Seafood Restaurant"
+    "tags": [],
+    "description": "Fried fish tacos",
+    "notes": "Using Hooked Seafood Restaurant storefront address"
   },
   {
     "id": "mttc_0036",
-    "address": "374 Pickering St, Manchester, NH 03104",
-    "lat": null,
-    "lng": null,
-    "notes": "Address confirmed by MapQuest; coordinates not reliably extractable from sources pulled"
+    "name": "Industry East",
+    "address": "28 Hanover St, Manchester, NH 03101",
+    "lat": 42.9930376,
+    "lng": -71.4568714,
+    "tags": [],
+    "description": "Peanut chicken satay tacos - confit chicken, thai spiced peanut sauce, scallion, sesame"
   },
   {
     "id": "mttc_0037",
-    "address": "28 Hanover St, Manchester, NH 03101",
-    "lat": null,
-    "lng": null,
-    "notes": "Address confirmed by MapQuest; coordinates not reliably extractable from sources pulled"
+    "name": "Keys Piano Bar & Grill",
+    "address": "1087 Elm St, Manchester, NH 03101",
+    "lat": 42.9935015,
+    "lng": -71.4626634,
+    "tags": ["vegan"],
+    "description": "Jerk chicken soft taco or grilled veggie taco",
+    "notes": "Permanently closed; address used for historical POC"
   },
   {
     "id": "mttc_0038",
-    "address": "1087 Elm St, Manchester, NH 03101",
-    "lat": null,
-    "lng": null,
-    "notes": "Keys Piano Bar & Grill listed at this address (permanently closed); need manual geocode for exact unit pin"
+    "name": "Kisaki",
+    "address": "641 Elm St, Manchester, NH 03101",
+    "lat": 42.9873593,
+    "lng": -71.4628457,
+    "tags": [],
+    "description": "Spicy crab sushi taco with lettuce & tempura seaweed"
   },
   {
     "id": "mttc_0039",
-    "address": "641 Elm St, Manchester, NH 03101",
-    "lat": null,
-    "lng": null,
-    "notes": "Kisaki address confirmed; still need coordinate source/geocode"
+    "name": "Manchvegas Brew Bus & Lil' Sunny The Camper",
+    "address": "374 Pickering St, Manchester, NH 03104",
+    "lat": 42.9982580,
+    "lng": -71.4382150,
+    "tags": ["gf", "vegetarian", "vegan"],
+    "description": "Nitro or caramel dulce de leche cold brews",
+    "notes": "Catering business; base address used for POC"
   },
   {
     "id": "mttc_0040",
+    "name": "Margarita’s Manchester",
     "address": "1037 Elm St, Manchester, NH 03101",
-    "lat": null,
-    "lng": null,
-    "notes": "Margaritas: if you already filled this in earlier chunks, keep your existing values; otherwise needs geocode"
+    "lat": 42.9928911,
+    "lng": -71.4628693,
+    "tags": [],
+    "description": "Carnitas soft flour taco w/garlic crema"
   }
 
 ]
