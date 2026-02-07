@@ -1,4 +1,4 @@
-o// Manchester, NH center
+// Manchester, NH center
 const map = L.map("map").setView([42.9956, -71.4548], 14);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -17,20 +17,29 @@ function showCard(stop) {
   card.style.display = "block";
 }
 
+function hideCard() {
+  card.style.display = "none";
+}
+
+// Dismiss when tapping the map (Leaflet event)
+map.on("click", hideCard);
+
+// Dismiss on mobile taps reliably (DOM event)
+map.getContainer().addEventListener("pointerdown", hideCard);
+
 fetch("./stops.json")
   .then((r) => r.json())
   .then((stops) => {
     stops.forEach((stop) => {
       const marker = L.marker([stop.lat, stop.lng]).addTo(map);
+
       marker.on("click", (e) => {
-  L.DomEvent.stopPropagation(e);
-  showCard(stop);
-});
+        // Prevent the marker tap from also dismissing via the map/container handler
+        if (e && e.originalEvent) e.originalEvent.stopPropagation();
+        showCard(stop);
+      });
     });
   })
   .catch((err) => {
     console.error("Could not load stops.json", err);
   });
-map.on("click", () => {
-  card.style.display = "none";
-});
