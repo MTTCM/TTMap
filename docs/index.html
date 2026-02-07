@@ -94,46 +94,46 @@
           <div id="map"></div>
         </section>
 
-        <!-- LIST VIEW (stub) -->
+        <!-- LIST VIEW -->
         <section
-  id="view-list"
-  class="view"
-  role="tabpanel"
-  aria-labelledby="tab-list"
-  hidden
->
-  <div class="list" id="list" aria-label="Stops list"></div>
-</section>
+          id="view-list"
+          class="view"
+          role="tabpanel"
+          aria-labelledby="tab-list"
+          hidden
+        >
+          <div class="list" id="list" aria-label="Stops list"></div>
+        </section>
       </main>
 
       <!-- Existing bottom detail card (unchanged IDs so app.js keeps working) -->
       <div id="card" aria-live="polite">
-  <div class="card-header">
-    <h2 id="card-name"></h2>
+        <div class="card-header">
+          <h2 id="card-name"></h2>
 
-    <button
-      type="button"
-      class="icon-btn fav-btn"
-      id="card-fav"
-      aria-label="Favorite"
-      title="Favorite"
-      aria-pressed="false"
-    >
-      <!-- heart icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z"
-          fill="currentColor"
-        />
-      </svg>
-    </button>
-  </div>
+          <button
+            type="button"
+            class="icon-btn fav-btn"
+            id="card-fav"
+            aria-label="Favorite"
+            title="Favorite"
+            aria-pressed="false"
+          >
+            <!-- heart icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
 
-  <p id="card-address"></p>
-  <p id="card-tags"></p>
-</div>
+        <p id="card-address"></p>
+        <p id="card-tags"></p>
+      </div>
 
-      <!-- FILTERS OVERLAY (stub) -->
+      <!-- FILTERS OVERLAY -->
       <div id="filters-overlay" class="overlay" hidden>
         <div class="overlay-backdrop" data-close="filters"></div>
         <section
@@ -161,30 +161,58 @@
           </div>
 
           <div class="sheet-body">
-            <p class="muted">
-              Filter UI stub (one tap away). When you wire this up later, keep
-              filter state global (shared by Map + List) and don’t reset on tab
-              switch.
-            </p>
+            <!-- Search -->
+            <div class="filter-block">
+              <label class="filter-label" for="filter-search">Search</label>
+              <input
+                id="filter-search"
+                class="filter-input"
+                type="search"
+                inputmode="search"
+                autocomplete="off"
+                placeholder="Name or description…"
+              />
+              <div class="muted filter-hint">
+                Multiple words = AND terms. Case-insensitive contains match.
+              </div>
+            </div>
 
-            <div class="filter-row">
-              <label class="chip">
-                <input type="checkbox" disabled />
-                <span>Vegetarian</span>
-              </label>
-              <label class="chip">
-                <input type="checkbox" disabled />
-                <span>Vegan</span>
-              </label>
-              <label class="chip">
-                <input type="checkbox" disabled />
-                <span>GF</span>
+            <!-- Diet tags -->
+            <div class="filter-block">
+              <div class="filter-label">Diet tags</div>
+              <div class="filter-row">
+                <label class="chip">
+                  <input id="filter-tag-gf" type="checkbox" />
+                  <span>GF</span>
+                </label>
+                <label class="chip">
+                  <input id="filter-tag-vegetarian" type="checkbox" />
+                  <span>Vegetarian</span>
+                </label>
+                <label class="chip">
+                  <input id="filter-tag-vegan" type="checkbox" />
+                  <span>Vegan</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Favorites only -->
+            <div class="filter-block">
+              <label class="filter-toggle">
+                <input id="filter-favorites-only" type="checkbox" />
+                <span>Favorites only</span>
               </label>
             </div>
 
-            <button type="button" class="primary-btn" disabled>
-              Apply (stub)
-            </button>
+            <!-- Actions -->
+            <div class="filter-actions">
+              <button type="button" class="secondary-btn" id="filters-reset">
+                Clear
+              </button>
+              <button type="button" class="primary-btn" data-close="filters">
+                Done
+              </button>
+            </div>
           </div>
         </section>
       </div>
@@ -217,9 +245,7 @@
           </header>
 
           <div class="about-body">
-            <p>
-              A quick, unofficial map/list view for the same dataset.
-            </p>
+            <p>A quick, unofficial map/list view for the same dataset.</p>
 
             <p class="muted">
               Unofficial: this site is not affiliated with any event organizers.
