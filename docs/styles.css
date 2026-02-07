@@ -122,6 +122,45 @@ body {
   width: 100%;
 }
 
+/* Map view overlays (Locate + toast) */
+#view-map {
+  position: relative;
+}
+
+.locate-btn {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top));
+  right: calc(10px + env(safe-area-inset-right));
+  z-index: 1000; /* above tiles; below overlays */
+}
+
+.locate-btn:disabled {
+  opacity: 0.6;
+}
+
+.map-toast {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.92);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+  max-width: calc(100% - 24px);
+  text-align: center;
+}
+
+.map-toast.is-visible {
+  opacity: 1;
+}
+
 /* List view */
 .list {
   height: 100%;
