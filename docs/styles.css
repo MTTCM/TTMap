@@ -10,9 +10,21 @@
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
-body { font-family: var(--font); background: var(--bg); color: var(--fg); }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+}
 
 .app {
   height: 100%;
@@ -110,21 +122,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   width: 100%;
 }
 
-/* List stub */
-.list-stub {
-  padding: 16px;
-}
-.list-stub h2 {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-.muted { color: var(--muted); }
-
 /* List view */
 .list {
   height: 100%;
   overflow: auto;
-  padding: 10px 10px 90px; /* bottom padding so it doesn't feel cramped */
+  padding: 10px 10px 90px;
   background: #fff;
 }
 
@@ -133,17 +135,24 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   border-radius: var(--radius);
   padding: 12px;
   margin: 10px 0;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .list-item-title {
   font-weight: 800;
-  margin: 0 0 6px;
   font-size: 15px;
+  margin: 0;
 }
 
 .list-item-desc {
-  margin: 0 0 8px;
+  margin: 6px 0 8px;
   color: #333;
   font-size: 14px;
 }
@@ -164,7 +173,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   font-weight: 600;
 }
 
-/* Bottom detail card (kept from original, slightly adjusted z-index to sit above map/overlays if needed) */
+.muted {
+  color: var(--muted);
+}
+
+/* Bottom detail card */
 #card {
   position: fixed;
   left: 0;
@@ -177,9 +190,18 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   display: none;
   z-index: 1100;
 }
-#card h2 { margin: 0 0 4px; font-size: 16px; }
-#card p { margin: 0; font-size: 14px; color: #444; }
-/* Favorites */
+
+#card h2 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+#card p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
 .card-header {
   display: flex;
   align-items: center;
@@ -187,8 +209,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   gap: 10px;
 }
 
-#card h2 { margin: 0; font-size: 16px; }
-
+/* Favorites */
 .fav-btn svg {
   width: 20px;
   height: 20px;
@@ -198,19 +219,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   color: #e0245e;
 }
 
-/* List row header with favorite button */
-.list-item-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.list-item-title {
-  margin: 0; /* override earlier margin so header layout is clean */
-}
 /* Overlays */
-.overlay[hidden] { display: none; }
+.overlay[hidden] {
+  display: none;
+}
 
 .overlay {
   position: fixed;
@@ -221,7 +233,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
 .overlay-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* Filters: bottom sheet */
@@ -257,11 +269,35 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   overflow: auto;
 }
 
+/* Filter controls */
+.filter-block {
+  margin: 0 0 14px;
+}
+
+.filter-label {
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.filter-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.filter-hint {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
 .filter-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 12px 0 16px;
 }
 
 .chip {
@@ -276,6 +312,25 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   font-size: 13px;
 }
 
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fafafa;
+}
+
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Buttons */
 .primary-btn {
   width: 100%;
   height: 44px;
@@ -286,7 +341,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--fg); }
   font-weight: 700;
 }
 
-/* About: dedicated full-screen panel */
+.secondary-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--fg);
+  font-weight: 800;
+}
+
+/* About screen */
 .about {
   position: absolute;
   inset: 0;
@@ -325,5 +390,6 @@ hr {
 }
 
 /* Reduce tap highlight weirdness on mobile */
-button { -webkit-tap-highlight-color: transparent; }
-
+button {
+  -webkit-tap-highlight-color: transparent;
+}
