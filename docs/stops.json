@@ -182,4 +182,96 @@
   },
 
   { "id": "mttc_0021", "name": "Consuelos", "address": "", "lat": null, "lng": null, "tags": [], "description": "" }
+{
+  "id": "mttc_0021",
+  "name": "Consuelos",
+  "address": "36 Amherst St, Manchester, NH 03101",
+  "lat": 42.9918715,
+  "lng": -71.4621504,
+  "tags": [],
+  "description": "Sauteed pork taco served on a corn tortilla topped w/green tomatillo & guacamole salsa"
+},
+{
+  "id": "mttc_0022",
+  "name": "Creative Kones",
+  "address": "245 Hooksett Rd, Manchester, NH 03104",
+  "lat": 43.0120846,
+  "lng": -71.4522079,
+  "tags": [],
+  "description": "Waffle cone filled with ground beef, shredded cheese, lettuce & chipotle crema",
+  "notes": "Multiple regional listings exist; Manchester Hooksett Rd location selected."
+},
+{
+  "id": "mttc_0023",
+  "name": "Dave’s Hot Chicken",
+  "address": "1071 S Willow St, Manchester, NH 03103",
+  "lat": 42.9610340,
+  "lng": -71.4391660,
+  "tags": [],
+  "description": "Fried chicken taco w/slaw, pickles & sauce"
+},
+{
+  "id": "mttc_0024",
+  "name": "DeadProof Pizza Co @ Bonfire",
+  "address": "950 Elm St, Manchester, NH 03101",
+  "lat": 42.9917315,
+  "lng": -71.4633097,
+  "tags": ["vegan"],
+  "description": "Street birria taco & vegan maple gochujang cauliflower taco"
+},
+{
+  "id": "mttc_0025",
+  "name": "Diz’s Cafe",
+  "address": "860 Elm St, Manchester, NH 03101",
+  "lat": 42.9902409,
+  "lng": -71.4632930,
+  "tags": ["gf"],
+  "description": "Diz's Magic Tacos - Beef taco with Dizspinaca topped w/shredded lettuce and pico de gallo"
+},
+{
+  "id": "mttc_0026",
+  "name": "Don Quijote",
+  "address": "416 Cedar St, Manchester, NH 03103",
+  "lat": 42.9862455,
+  "lng": -71.4576156,
+  "tags": [],
+  "description": "Carnitas, al pastor & birria w/rice & plantains"
+},
+{
+  "id": "mttc_0027",
+  "name": "El Rincon",
+  "address": "10 Lake Ave, Manchester, NH 03101",
+  "lat": 42.9873576,
+  "lng": -71.4626523,
+  "tags": [],
+  "description": "Taco Borracho - Carnitas, pork & beef w/carmelized onion, jalapeno & chorizo"
+},
+{
+  "id": "mttc_0028",
+  "name": "Empanadas Deluxe 603",
+  "address": "789 Second St, Manchester, NH 03102",
+  "lat": 42.9759167,
+  "lng": -71.4862474,
+  "tags": [],
+  "description": "Empanada taco",
+  "notes": "Food truck & catering; Manchester base address used."
+},
+{
+  "id": "mttc_0029",
+  "name": "Firefly Bistro & Bar",
+  "address": "22 Concord St, Manchester, NH 03101",
+  "lat": 42.9929182,
+  "lng": -71.4622849,
+  "tags": [],
+  "description": "Cheesy seasoned chicken, chipotle crema & crunchy tortilla chips in a soft flour tortilla"
+},
+{
+  "id": "mttc_0030",
+  "name": "Granite State Candy Shoppe",
+  "address": "832 Elm St, Manchester, NH 03101",
+  "lat": 42.9899216,
+  "lng": -71.4630890,
+  "tags": ["vegetarian"],
+  "description": "Chocolate Taco Crunch Mix, Chocolate drizzled waffle cone pieces w/cinnamon & chocolate"
+}
 ]
