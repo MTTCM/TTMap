@@ -31,3 +31,6 @@ fetch("./stops.json")
   .catch((err) => {
     console.error("Could not load stops.json", err);
   });
+map.on("click", () => {
+  card.style.display = "none";
+});
