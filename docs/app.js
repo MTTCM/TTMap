@@ -576,7 +576,7 @@ fetch("./stops.json")
     allStops.forEach((stop) => {
       if (stop.lat == null || stop.lng == null) return;
 
-      const marker = L.marker([stop.lat, stop.lng]);
+      const marker = L.marker([stop.lat, stop.lng], { icon: getTacoIcon() });
 
       if (stop.id) {
         markersById.set(stop.id, marker);
