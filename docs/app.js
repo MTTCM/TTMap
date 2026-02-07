@@ -1,6 +1,5 @@
 // app.js
-// Map + shared data load + minimal list rendering (no framework)
-// Favorites w/ localStorage + Favorites chip filter (applies to Map + List)
+// Map + shared data load + minimal list rendering (no framework) + Favorites w/ localStorage
 
 // Manchester, NH center
 const map = L.map("map").setView([42.9956, -71.4548], 14);
@@ -19,16 +18,8 @@ const cardAddress = document.getElementById("card-address");
 const cardTags = document.getElementById("card-tags");
 const cardFavBtn = document.getElementById("card-fav");
 
-// List container
+// List container (added in index.html as <div id="list" class="list"></div>)
 const listEl = document.getElementById("list");
-
-// Favorites chip
-const favChipBtn = document.getElementById("chip-favorites");
-let showFavoritesOnly = false;
-
-// Keep dataset + markers to filter both views
-let allStops = [];
-const markersById = new Map(); // id -> Leaflet marker
 
 // ---------------------------
 // Favorites (single source of truth)
@@ -45,7 +36,6 @@ function loadFavorites() {
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return new Set();
 
-    // keep only strings
     return new Set(parsed.filter((x) => typeof x === "string" && x.length));
   } catch {
     return new Set();
@@ -56,7 +46,7 @@ function saveFavorites() {
   try {
     localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favoriteIds]));
   } catch {
-    // ignore (storage disabled, quota, etc.)
+    // ignore (storage disabled/quota/etc.)
   }
 }
 
@@ -72,13 +62,9 @@ function toggleFavorite(id) {
 
   saveFavorites();
   updateFavoriteUI(id);
-
-  // If filtering, the item may need to appear/disappear in both views
-  if (showFavoritesOnly) applyFilters();
 }
 
 function safeEscape(sel) {
-  // CSS.escape is widely supported, but keep a tiny fallback
   if (window.CSS && typeof window.CSS.escape === "function") return window.CSS.escape(sel);
   return String(sel).replace(/["\\]/g, "\\$&");
 }
@@ -115,53 +101,6 @@ if (cardFavBtn) {
 }
 
 // ---------------------------
-// Favorites chip filter (Map + List)
-// ---------------------------
-function setChipState(btn, on) {
-  if (!btn) return;
-  btn.classList.toggle("is-active", !!on);
-  btn.setAttribute("aria-pressed", on ? "true" : "false");
-}
-
-function getFilteredStops() {
-  if (!showFavoritesOnly) return allStops;
-  return allStops.filter((s) => s && s.id && isFavorite(s.id));
-}
-
-function applyFilters() {
-  // List
-  renderList(getFilteredStops());
-
-  // Map markers
-  for (const stop of allStops) {
-    if (!stop || !stop.id) continue;
-    const marker = markersById.get(stop.id);
-    if (!marker) continue;
-
-    const shouldShow = !showFavoritesOnly || isFavorite(stop.id);
-
-    if (shouldShow) {
-      if (!map.hasLayer(marker)) marker.addTo(map);
-    } else {
-      if (map.hasLayer(marker)) marker.remove();
-    }
-  }
-
-  // If the card is open and we’re in favorites-only mode, hide it if it no longer qualifies
-  if (showFavoritesOnly && currentCardStopId && !isFavorite(currentCardStopId)) {
-    hideCard();
-  }
-}
-
-if (favChipBtn) {
-  favChipBtn.addEventListener("click", () => {
-    showFavoritesOnly = !showFavoritesOnly;
-    setChipState(favChipBtn, showFavoritesOnly);
-    applyFilters();
-  });
-}
-
-// ---------------------------
 // Card show/hide
 // ---------------------------
 function showCard(stop) {
@@ -171,7 +110,6 @@ function showCard(stop) {
   cardAddress.textContent = stop.address || "";
   cardTags.textContent = (stop.tags || []).join(" • ");
 
-  // update heart state for this stop
   if (currentCardStopId) {
     setFavButtonState(cardFavBtn, isFavorite(currentCardStopId));
   } else {
@@ -273,34 +211,26 @@ function renderList(stops) {
 }
 
 // ---------------------------
-// Data load + marker creation
+// Data load + map markers
 // ---------------------------
 fetch("./stops.json")
   .then((r) => r.json())
   .then((stops) => {
-    allStops = Array.isArray(stops) ? stops : [];
+    // Render list view immediately
+    renderList(stops);
 
-    // Create markers once; filtering will add/remove from map
-    allStops.forEach((stop) => {
-      if (!stop || !stop.id) return;
+    // Add map markers (skip entries with missing coords)
+    stops.forEach((stop) => {
       if (stop.lat == null || stop.lng == null) return;
 
-      const marker = L.marker([stop.lat, stop.lng]);
+      const marker = L.marker([stop.lat, stop.lng]).addTo(map);
 
       marker.on("click", (e) => {
         // Prevent the marker tap from also dismissing via the map/container handler
         if (e && e.originalEvent) e.originalEvent.stopPropagation();
         showCard(stop);
       });
-
-      markersById.set(stop.id, marker);
     });
-
-    // Initial state
-    setChipState(favChipBtn, showFavoritesOnly);
-
-    // Initial render using filter pipeline (shows all by default)
-    applyFilters();
   })
   .catch((err) => {
     console.error("Could not load stops.json", err);
