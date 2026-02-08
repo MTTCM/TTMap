@@ -62,10 +62,11 @@ body {
 
 .header-row--top {
   position: relative;
-  padding-bottom: 8px; /* gives breathing room above divider */
+  padding-bottom: 8px;
 }
+
 .header-row--top .icon-btn {
-  justify-self: end;
+  margin-left: auto; /* pushes it to the right in a flex row */
 }
 
 .header-row--top::after {
