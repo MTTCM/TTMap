@@ -559,7 +559,7 @@ function getTacoIcon() {
   return L.divIcon({
   className: "taco-marker",
   html: svg,
-  iconSize: [148, 148],
+  iconSize: [60, 60],
   // anchor scales proportionally with size
   iconAnchor: [24, 30],
 });
