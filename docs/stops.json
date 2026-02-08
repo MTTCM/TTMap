@@ -787,87 +787,116 @@
   },
   {
     "id": "mttc_0081",
+    "name": "Thirsty Moose Taphouse",
     "address": "795 Elm St, Manchester, NH 03101",
     "lat": 42.9895293,
     "lng": -71.4628182,
-    "notes": ""
+    "tags": [],
+    "description": "Beef & cheese taco w/pico de gallo and sour cream"
   },
   {
     "id": "mttc_0082",
+    "name": "Thistle’s Salsa",
     "address": "Manchester, NH",
-    "lat": 42.9905364,
-    "lng": -71.4635622,
-    "notes": "Could not confirm a single storefront address for 'Thistle's Salsa'. Using City Hall Plaza area as a safe downtown default for this proof-of-concept."
+    "lat": 42.9911036,
+    "lng": -71.4635357,
+    "tags": ["gf", "vegan"],
+    "description": "Pulled pork taco w/cabbage lime slaw & Thistle’s salsa or corn chips and 4 oz cups of Thistle's Salsa",
+    "notes": "No single storefront confirmed; pinned to City Hall area for POC."
   },
   {
     "id": "mttc_0083",
-    "address": "1000 Elm St Unit 6, Manchester, NH 03101",
+    "name": "Thousand Crane",
+    "address": "1000 Elm St, Manchester, NH 03101",
     "lat": 42.9923686,
     "lng": -71.4639708,
-    "notes": ""
+    "tags": [],
+    "description": "Teriyaki chicken taco",
+    "notes": "Elm St storefront-level placement for POC."
   },
   {
     "id": "mttc_0084",
+    "name": "Tidewater Catering Group",
     "address": "250 Commercial St, Manchester, NH 03101",
     "lat": 42.9907386,
     "lng": -71.4690033,
-    "notes": "Using 250 Commercial St coordinates (shared building/complex)."
+    "tags": [],
+    "description": "Pork carnitas tacos w/slaw & cilantro crema",
+    "notes": "Catering-style listing; using Commercial St office/complex for POC."
   },
   {
     "id": "mttc_0085",
+    "name": "To Share Brewing Company",
     "address": "720 Union St, Manchester, NH 03104",
     "lat": 42.9991007,
     "lng": -71.4584569,
-    "notes": ""
+    "tags": ["vegetarian"],
+    "description": "The Elvis: Flour tortilla w/banana slices, honey drizzle & optional bacon"
   },
   {
     "id": "mttc_0086",
+    "name": "Tommy's Pizzeria",
     "address": "Manchester, NH",
-    "lat": 42.9905364,
-    "lng": -71.4635622,
-    "notes": "Could not confidently identify which 'Tommy's Pizzeria' location matches the Taco Tour stop name. Using City Hall Plaza area as a safe downtown default for this proof-of-concept."
+    "lat": 42.9911036,
+    "lng": -71.4635357,
+    "tags": [],
+    "description": "Buffalo chicken taco",
+    "notes": "Business name ambiguous; pinned to City Hall area for POC."
   },
   {
     "id": "mttc_0087",
+    "name": "USA Chicken & Biscuit",
     "address": "990 Elm St, Manchester, NH 03101",
     "lat": 42.9920663,
     "lng": -71.4633206,
-    "notes": ""
+    "tags": [],
+    "description": "Jamaican beef patty w/lettuce, cheese & famous white sauce"
   },
   {
     "id": "mttc_0088",
+    "name": "Walking Gourmet",
     "address": "Manchester, NH",
-    "lat": 42.9905364,
-    "lng": -71.4635622,
-    "notes": "Walking Gourmet appears to be a catering/food-truck style vendor; no single fixed address confirmed. Using City Hall Plaza area as a safe downtown default."
+    "lat": 42.9911036,
+    "lng": -71.4635357,
+    "tags": ["gf"],
+    "description": "Birria tacos w/candied jalapenos & fire-roasted aioli",
+    "notes": "Likely mobile/catering; pinned to City Hall area for POC."
   },
   {
     "id": "mttc_0089",
+    "name": "Yankee Lanes",
     "address": "216 Maple St, Manchester, NH 03103",
-    "lat": 42.9811,
-    "lng": -71.4532,
-    "notes": "Coordinates approximated from a nearby Maple St reference; good enough for proof-of-concept. If you want tighter accuracy, we can refine this one."
+    "lat": 42.9811000,
+    "lng": -71.4532000,
+    "tags": [],
+    "description": "Pulled pork taco in a white flour tortilla",
+    "notes": "POC coordinates (approx). If you want, we can tighten this with an exact geocode later."
   },
   {
     "id": "mttc_0090",
+    "name": "110 Grill",
     "address": "875 Elm St, Manchester, NH 03101",
     "lat": 42.9903577,
     "lng": -71.4628164,
-    "notes": ""
+    "tags": ["gf"],
+    "description": "Pulled pork taco w/lime crema & pineapple salsa"
   },
   {
     "id": "mttc_0091",
+    "name": "815 Cocktails & Provisions",
     "address": "815 Elm St, Manchester, NH 03101",
     "lat": 42.9898465,
     "lng": -71.4626937,
-    "notes": ""
+    "tags": ["gf"],
+    "description": "BBQ’d Chicken, tacos w/Alabama white sauce, marinated collard greens, vidalia onions, lime"
   },
   {
     "id": "mttc_0092",
+    "name": "900 Degrees",
     "address": "50 Dow St, Manchester, NH 03101",
     "lat": 42.9969715,
     "lng": -71.4652082,
-    "notes": ""
+    "tags": [],
+    "description": "Chicken tacos"
   }
-
 ]
