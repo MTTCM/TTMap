@@ -118,12 +118,13 @@ const DEFAULT_FILTERS = {
   search: "", // string
 };
 
-// Bottom detail card elements
+// Map detail card elements
 const card = document.getElementById("card");
 const cardName = document.getElementById("card-name");
-const cardAddress = document.getElementById("card-address");
 const cardTags = document.getElementById("card-tags");
+const cardDesc = document.getElementById("card-desc");
 const cardFavBtn = document.getElementById("card-fav");
+const cardCloseBtn = document.getElementById("card-close");
 
 // List container
 const listEl = document.getElementById("list");
@@ -248,23 +249,6 @@ function setDietTagSelected(tag, on) {
   filterState.dietTags = [...set].filter((x) => ALLOWED_DIET_TAGS.has(x));
 }
 
-function toggleFavorite(id) {
-  if (!id) return;
-
-  if (favoriteIds.has(id)) favoriteIds.delete(id);
-  else favoriteIds.add(id);
-
-  saveFavorites();
-
-  // Always update hearts immediately
-  updateFavoriteUI(id);
-
-  // If favorites-only is ON, toggling a heart changes visibility
-  if (filterState.favoritesOnly) {
-    applyFilters();
-  }
-}
-
 function safeEscape(sel) {
   if (window.CSS && typeof window.CSS.escape === "function")
     return window.CSS.escape(sel);
@@ -275,6 +259,15 @@ function setFavButtonState(btn, on) {
   if (!btn) return;
   btn.classList.toggle("is-fav", !!on);
   btn.setAttribute("aria-pressed", on ? "true" : "false");
+}
+
+function triggerFavPop(btn) {
+  if (!btn) return;
+  btn.classList.remove("fav-pop");
+  // force reflow so re-adding the class retriggers the animation
+  void btn.offsetWidth;
+  btn.classList.add("fav-pop");
+  window.setTimeout(() => btn.classList.remove("fav-pop"), 160);
 }
 
 function updateFavoriteUI(id) {
@@ -293,13 +286,41 @@ function updateFavoriteUI(id) {
   }
 }
 
-// Card heart click (do not bubble to map/container)
-if (cardFavBtn) {
-  cardFavBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleFavorite(currentCardStopId);
-  });
-  cardFavBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+function toggleFavorite(id, sourceBtn = null) {
+  if (!id) return;
+
+  if (favoriteIds.has(id)) favoriteIds.delete(id);
+  else favoriteIds.add(id);
+
+  saveFavorites();
+
+  // Always update hearts immediately
+  updateFavoriteUI(id);
+
+  // Minimal acknowledgement (only on the button that was tapped)
+  if (sourceBtn) triggerFavPop(sourceBtn);
+
+  // If favorites-only is ON, toggling a heart changes visibility
+  if (filterState.favoritesOnly) {
+    applyFilters();
+  }
+}
+
+// ---------------------------
+// Tag chip rendering (Map card + List cards)
+// ---------------------------
+function renderTagChips(container, tags) {
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (!Array.isArray(tags) || !tags.length) return;
+
+  for (const t of tags) {
+    const chip = document.createElement("span");
+    chip.className = "tag-chip";
+    chip.textContent = String(t);
+    container.appendChild(chip);
+  }
 }
 
 // ---------------------------
@@ -308,9 +329,11 @@ if (cardFavBtn) {
 function showCard(stop) {
   currentCardStopId = stop.id || null;
 
-  cardName.textContent = stop.name || "";
-  cardAddress.textContent = stop.address || "";
-  cardTags.textContent = (stop.tags || []).join(" • ");
+  if (cardName) cardName.textContent = stop.name || "";
+  renderTagChips(cardTags, stop.tags || []);
+
+  // Description is always visible, never truncated/collapsed
+  if (cardDesc) cardDesc.textContent = stop.description || "";
 
   if (currentCardStopId) {
     setFavButtonState(cardFavBtn, isFavorite(currentCardStopId));
@@ -318,12 +341,12 @@ function showCard(stop) {
     setFavButtonState(cardFavBtn, false);
   }
 
-  card.style.display = "block";
+  if (card) card.style.display = "block";
 }
 
 function hideCard() {
   currentCardStopId = null;
-  card.style.display = "none";
+  if (card) card.style.display = "none";
 }
 
 // Dismiss when tapping the map (Leaflet event)
@@ -331,6 +354,30 @@ map.on("click", hideCard);
 
 // Dismiss on mobile taps reliably (DOM event)
 map.getContainer().addEventListener("pointerdown", hideCard);
+
+// Prevent taps inside the card from dismissing it via map/container handlers
+if (card) {
+  card.addEventListener("pointerdown", (e) => e.stopPropagation());
+  card.addEventListener("click", (e) => e.stopPropagation());
+}
+
+// Close button
+if (cardCloseBtn) {
+  cardCloseBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+  cardCloseBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hideCard();
+  });
+}
+
+// Card heart click (do not bubble to map/container)
+if (cardFavBtn) {
+  cardFavBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+  cardFavBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleFavorite(currentCardStopId, cardFavBtn);
+  });
+}
 
 // ---------------------------
 // Apply filters to BOTH views (map + list)
@@ -360,7 +407,7 @@ function applyFilters() {
 }
 
 // ---------------------------
-// List rendering
+// List rendering (cards/rows match Map card layout language)
 // ---------------------------
 function renderList(stops) {
   if (!listEl) return;
@@ -382,17 +429,16 @@ function renderList(stops) {
   }
 
   for (const stop of sorted) {
-    const item = document.createElement("div");
-    item.className = "list-item";
+    const outer = document.createElement("div");
+    outer.className = "list-item";
 
-    // Header row: title + favorite button
-    const header = document.createElement("div");
-    header.className = "list-item-header";
+    const cardEl = document.createElement("div");
+    cardEl.className = "vendor-card";
 
-    const title = document.createElement("div");
-    title.className = "list-item-title";
-    title.textContent = stop.name || "(Unnamed stop)";
+    const top = document.createElement("div");
+    top.className = "vendor-top";
 
+    // Far left: Favorite
     const fav = document.createElement("button");
     fav.type = "button";
     fav.className = "icon-btn fav-btn";
@@ -405,48 +451,45 @@ function renderList(stops) {
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
           d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z"
-          fill="currentColor"
         />
       </svg>
     `;
 
-    // Heart click should NOT trigger row selection/navigation
+    // Favorite click must NOT trigger any row/card behavior
+    fav.addEventListener("pointerdown", (e) => e.stopPropagation());
     fav.addEventListener("click", (e) => {
       e.stopPropagation();
-      toggleFavorite(stop.id);
+      toggleFavorite(stop.id, fav);
     });
-    fav.addEventListener("pointerdown", (e) => e.stopPropagation());
 
-    header.appendChild(title);
-    header.appendChild(fav);
-    item.appendChild(header);
+    // Name + inline tags
+    const titleWrap = document.createElement("div");
+    titleWrap.className = "vendor-title";
 
+    const name = document.createElement("div");
+    name.className = "vendor-name";
+    name.textContent = stop.name || "(Unnamed stop)";
+
+    const tags = document.createElement("div");
+    tags.className = "vendor-tags";
+    renderTagChips(tags, stop.tags || []);
+
+    titleWrap.appendChild(name);
+    titleWrap.appendChild(tags);
+
+    top.appendChild(fav);
+    top.appendChild(titleWrap);
+
+    // Body: description (always visible)
     const desc = document.createElement("div");
-    desc.className = "list-item-desc";
+    desc.className = "vendor-desc";
     desc.textContent = stop.description || "";
 
-    const meta = document.createElement("div");
-    meta.className = "list-item-meta";
+    cardEl.appendChild(top);
+    if (desc.textContent) cardEl.appendChild(desc);
 
-    if (stop.address) {
-      const addr = document.createElement("span");
-      addr.textContent = stop.address;
-      meta.appendChild(addr);
-    }
-
-    if (Array.isArray(stop.tags) && stop.tags.length) {
-      for (const t of stop.tags) {
-        const tag = document.createElement("span");
-        tag.className = "tag";
-        tag.textContent = t;
-        meta.appendChild(tag);
-      }
-    }
-
-    if (desc.textContent) item.appendChild(desc);
-    if (meta.childNodes.length) item.appendChild(meta);
-
-    listEl.appendChild(item);
+    outer.appendChild(cardEl);
+    listEl.appendChild(outer);
   }
 }
 
@@ -528,6 +571,7 @@ function initFiltersUI() {
   // Initial sync
   syncControlsFromState();
 }
+
 // ---------------------------
 // Taco marker icon (Leaflet divIcon w/ inline SVG)
 // ---------------------------
@@ -557,13 +601,14 @@ function getTacoIcon() {
   `;
 
   return L.divIcon({
-  className: "taco-marker",
-  html: svg,
-  iconSize: [60, 60],
-  // anchor scales proportionally with size
-  iconAnchor: [24, 30],
-});
+    className: "taco-marker",
+    html: svg,
+    iconSize: [60, 60],
+    // anchor scales proportionally with size
+    iconAnchor: [24, 30],
+  });
 }
+
 // ---------------------------
 // Data load + map markers
 // ---------------------------
