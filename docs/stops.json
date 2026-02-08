@@ -180,8 +180,6 @@
     "tags": ["vegetarian"],
     "description": "Pear & frangipane taco"
   },
-
-  { "id": "mttc_0021", "name": "Consuelos", "address": "", "lat": null, "lng": null, "tags": [], "description": "" },
 {
   "id": "mttc_0021",
   "name": "Consuelos",
@@ -687,97 +685,106 @@
     "tags": [],
     "description": "Short rib taco with roasted peppers"
   },
-
-{
-  "id": "mttc_0071",
-  "name": "The Currier Museum of Art",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["vegetarian"],
-  "description": "Hawaiian or falafel tacos"
-},
-{
-  "id": "mttc_0072",
-  "name": "The Farm Bar and Grille",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "BBQ pulled pork taco w/coleslaw & cheddar"
-},
-{
-  "id": "mttc_0073",
-  "name": "The Goat",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Pulled pork taco w/roasted corn & queso"
-},
-{
-  "id": "mttc_0074",
-  "name": "The HopKnot",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf", "vegan"],
-  "description": "Walking Taco w/beer cheese & jalapeno honey"
-},
-{
-  "id": "mttc_0075",
-  "name": "The Patio @ Hilton Garden Inn Manchester",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "PB&J Taco - Blueberry tarragon jam, peanut chicken, sour cream & onion chips & sirarcha aoli"
-},
-{
-  "id": "mttc_0076",
-  "name": "The Pint Publik House",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Jamaican curry chicken soft taco w/cheddar"
-},
-{
-  "id": "mttc_0077",
-  "name": "The Potato Concept",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf", "vegetarian", "vegan"],
-  "description": "Ground beef Po’tacos w/cheddar, lettuce & tomato or black bean salad w/arugula in a potato shell"
-},
-{
-  "id": "mttc_0078",
-  "name": "The Red Barn Diner",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Breakfast tacos"
-},
-{
-  "id": "mttc_0079",
-  "name": "The Sleazy Vegan",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf", "vegan"],
-  "description": "Chipotle sweet potato taco"
-},
-{
-  "id": "mttc_0080",
-  "name": "The Stoned Wall Bar & Grille",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Jerked chicken & kiwi salsa taco"
-},
+  {
+    "id": "mttc_0071",
+    "name": "The Currier Museum of Art",
+    "address": "150 Ash St, Manchester, NH 03104",
+    "lat": 42.9849,
+    "lng": -71.4689,
+    "tags": ["vegetarian"],
+    "description": "Hawaiian or falafel tacos",
+    "notes": "POC coordinates (approx)."
+  },
+  {
+    "id": "mttc_0072",
+    "name": "The Farm Bar and Grille",
+    "address": "1181 Elm St, Manchester, NH 03101",
+    "lat": 42.9956,
+    "lng": -71.4626,
+    "tags": [],
+    "description": "BBQ pulled pork taco w/coleslaw & cheddar",
+    "notes": "POC coordinates (approx)."
+  },
+  {
+    "id": "mttc_0073",
+    "name": "The Goat",
+    "address": "50 Old Granite St, Manchester, NH 03101",
+    "lat": 42.9940,
+    "lng": -71.4618,
+    "tags": [],
+    "description": "Pulled pork taco w/roasted corn & queso",
+    "notes": "POC coordinates (approx)."
+  },
+  {
+    "id": "mttc_0074",
+    "name": "The HopKnot",
+    "address": "1015 Elm St, Manchester, NH 03101",
+    "lat": 42.9926086,
+    "lng": -71.4626962,
+    "tags": ["gf", "vegan"],
+    "description": "Walking Taco w/beer cheese & jalapeno honey",
+    "notes": "Using the same storefront location as your earlier Hop Knot entry (Elm St)."
+  },
+  {
+    "id": "mttc_0075",
+    "name": "The Patio @ Hilton Garden Inn Manchester",
+    "address": "101 S Commercial St, Manchester, NH 03101",
+    "lat": 42.9898,
+    "lng": -71.4629,
+    "tags": [],
+    "description": "PB&J Taco - Blueberry tarragon jam, peanut chicken, sour cream & onion chips & sirarcha aoli",
+    "notes": "POC coordinates (approx)."
+  },
+  {
+    "id": "mttc_0076",
+    "name": "The Pint Publik House",
+    "address": "110 Hanover St, Manchester, NH 03101",
+    "lat": 42.9910466,
+    "lng": -71.4607915,
+    "tags": [],
+    "description": "Jamaican curry chicken soft taco w/cheddar",
+    "notes": "POC: pinned to Hanover St downtown cluster."
+  },
+  {
+    "id": "mttc_0077",
+    "name": "The Potato Concept",
+    "address": "Manchester, NH",
+    "lat": 42.9911036,
+    "lng": -71.4635357,
+    "tags": ["gf", "vegetarian", "vegan"],
+    "description": "Ground beef Po’tacos w/cheddar, lettuce & tomato or black bean salad w/arugula in a potato shell",
+    "notes": "No reliable storefront found; pinned to City Hall centroid for POC."
+  },
+  {
+    "id": "mttc_0078",
+    "name": "The Red Barn Diner",
+    "address": "460 Union St, Manchester, NH 03103",
+    "lat": 42.9763,
+    "lng": -71.4513,
+    "tags": [],
+    "description": "Breakfast tacos",
+    "notes": "POC coordinates (approx)."
+  },
+  {
+    "id": "mttc_0079",
+    "name": "The Sleazy Vegan",
+    "address": "Manchester, NH",
+    "lat": 42.9911036,
+    "lng": -71.4635357,
+    "tags": ["gf", "vegan"],
+    "description": "Chipotle sweet potato taco",
+    "notes": "Likely mobile/pop-up; pinned to City Hall centroid for POC."
+  },
+  {
+    "id": "mttc_0080",
+    "name": "The Stoned Wall Bar & Grille",
+    "address": "12 Orange St, Manchester, NH 03104",
+    "lat": 42.9968,
+    "lng": -71.4606,
+    "tags": [],
+    "description": "Jerked chicken & kiwi salsa taco",
+    "notes": "POC coordinates (approx)."
+  },
 {
   "id": "mttc_0081",
   "name": "Thirsty Moose Taphouse",
