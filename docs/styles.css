@@ -61,7 +61,18 @@ body {
 }
 
 .header-row--top {
+  position: relative;
   padding-bottom: 8px;
+}
+
+.header-row--top::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: 0;
+  height: 1px;
+  background: var(--border);
 }
 
 .header-row--bottom {
@@ -69,10 +80,13 @@ body {
 }
 
 .app-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: 800;
-  font-size: 15px;
-  line-height: 1.1;
-  letter-spacing: 0.2px;
+  font-size: 17px; /* slightly larger */
+  line-height: 1.2;
+  letter-spacing: 0.3px;
   white-space: nowrap;
 }
 
@@ -121,9 +135,9 @@ body {
 .filters-btn {
   height: 38px;
   padding: 0 12px;
-  border-radius: 10px; /* subtle rounding, NOT pill */
+  border-radius: 10px;
   border: 1px solid var(--border);
-  background: var(--header-surface); /* matches unselected tabs */
+  background: var(--content-surface); /* was --header-surface */
   color: var(--fg);
   display: inline-flex;
   align-items: center;
