@@ -137,6 +137,11 @@ body {
   padding: var(--map-gap);
 }
 
+#view-list {
+  padding: var(--map-gap);
+  background: var(--shell-bg);
+}
+
 /* Soft Card Map framing */
 .map-card {
   flex: 1;
@@ -196,6 +201,7 @@ body {
   overflow: auto;
   padding: 10px 10px 90px;
   background: #fff;
+  border-radius: 12px;
 }
 
 .list-item {
