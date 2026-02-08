@@ -785,113 +785,89 @@
     "description": "Jerked chicken & kiwi salsa taco",
     "notes": "POC coordinates (approx)."
   },
-{
-  "id": "mttc_0081",
-  "name": "Thirsty Moose Taphouse",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Beef & cheese taco w/pico de gallo and sour cream"
-},
-{
-  "id": "mttc_0082",
-  "name": "Thistle’s Salsa",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf", "vegan"],
-  "description": "Pulled pork taco w/cabbage lime slaw & Thistle’s salsa or corn chips and 4 oz cups of Thistle's Salsa"
-},
-{
-  "id": "mttc_0083",
-  "name": "Thousand Crane",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Teriyaki chicken taco"
-},
-{
-  "id": "mttc_0084",
-  "name": "Tidewater Catering Group",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Pork carnitas tacos w/slaw & cilantro crema"
-},
-{
-  "id": "mttc_0085",
-  "name": "To Share Brewing Company",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["vegetarian"],
-  "description": "The Elvis: Flour tortilla w/banana slices, honey drizzle & optional bacon"
-},
-{
-  "id": "mttc_0086",
-  "name": "Tommy's Pizzeria",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Buffalo chicken taco"
-},
-{
-  "id": "mttc_0087",
-  "name": "USA Chicken & Biscuit",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Jamaican beef patty w/lettuce, cheese & famous white sauce"
-},
-{
-  "id": "mttc_0088",
-  "name": "Walking Gourmet",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf"],
-  "description": "Birria tacos w/candied jalapenos & fire-roasted aioli"
-},
-{
-  "id": "mttc_0089",
-  "name": "Yankee Lanes",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Pulled pork taco in a white flour tortilla"
-},
-{
-  "id": "mttc_0090",
-  "name": "110 Grill",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf"],
-  "description": "Pulled pork taco w/lime crema & pineapple salsa"
-},
-{
-  "id": "mttc_0091",
-  "name": "815 Cocktails & Provisions",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": ["gf"],
-  "description": "BBQ’d Chicken, tacos w/Alabama white sauce, marinated collard greens, vidalia onions, lime"
-},
-{
-  "id": "mttc_0092",
-  "name": "900 Degrees",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "tags": [],
-  "description": "Chicken tacos"
-}
+  {
+    "id": "mttc_0081",
+    "address": "795 Elm St, Manchester, NH 03101",
+    "lat": 42.9895293,
+    "lng": -71.4628182,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0082",
+    "address": "Manchester, NH",
+    "lat": 42.9905364,
+    "lng": -71.4635622,
+    "notes": "Could not confirm a single storefront address for 'Thistle's Salsa'. Using City Hall Plaza area as a safe downtown default for this proof-of-concept."
+  },
+  {
+    "id": "mttc_0083",
+    "address": "1000 Elm St Unit 6, Manchester, NH 03101",
+    "lat": 42.9923686,
+    "lng": -71.4639708,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0084",
+    "address": "250 Commercial St, Manchester, NH 03101",
+    "lat": 42.9907386,
+    "lng": -71.4690033,
+    "notes": "Using 250 Commercial St coordinates (shared building/complex)."
+  },
+  {
+    "id": "mttc_0085",
+    "address": "720 Union St, Manchester, NH 03104",
+    "lat": 42.9991007,
+    "lng": -71.4584569,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0086",
+    "address": "Manchester, NH",
+    "lat": 42.9905364,
+    "lng": -71.4635622,
+    "notes": "Could not confidently identify which 'Tommy's Pizzeria' location matches the Taco Tour stop name. Using City Hall Plaza area as a safe downtown default for this proof-of-concept."
+  },
+  {
+    "id": "mttc_0087",
+    "address": "990 Elm St, Manchester, NH 03101",
+    "lat": 42.9920663,
+    "lng": -71.4633206,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0088",
+    "address": "Manchester, NH",
+    "lat": 42.9905364,
+    "lng": -71.4635622,
+    "notes": "Walking Gourmet appears to be a catering/food-truck style vendor; no single fixed address confirmed. Using City Hall Plaza area as a safe downtown default."
+  },
+  {
+    "id": "mttc_0089",
+    "address": "216 Maple St, Manchester, NH 03103",
+    "lat": 42.9811,
+    "lng": -71.4532,
+    "notes": "Coordinates approximated from a nearby Maple St reference; good enough for proof-of-concept. If you want tighter accuracy, we can refine this one."
+  },
+  {
+    "id": "mttc_0090",
+    "address": "875 Elm St, Manchester, NH 03101",
+    "lat": 42.9903577,
+    "lng": -71.4628164,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0091",
+    "address": "815 Elm St, Manchester, NH 03101",
+    "lat": 42.9898465,
+    "lng": -71.4626937,
+    "notes": ""
+  },
+  {
+    "id": "mttc_0092",
+    "address": "50 Dow St, Manchester, NH 03101",
+    "lat": 42.9969715,
+    "lng": -71.4652082,
+    "notes": ""
+  }
 
 ]
