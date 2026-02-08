@@ -368,6 +368,99 @@
     "lng": -71.4628693,
     "tags": [],
     "description": "Carnitas soft flour taco w/garlic crema"
+  },
+  {
+    "id": "mttc_0041",
+    "name": "Maya’s",
+    "address": "1065 Elm St, Manchester, NH 03101",
+    "lat": 42.9931547,
+    "lng": -71.4628869,
+    "tags": [],
+    "description": "Jerk chicken or jerk beef tacos"
+  },
+  {
+    "id": "mttc_0042",
+    "name": "McGarvey’s",
+    "address": "111 Hanover St, Manchester, NH 03101",
+    "lat": 42.9912148,
+    "lng": -71.4606095,
+    "tags": [],
+    "description": "",
+    "notes": "Description not listed on 2024 map"
+  },
+  {
+    "id": "mttc_0043",
+    "name": "MFD Central Station",
+    "address": "121 Merrimack St, Manchester, NH 03101",
+    "lat": 42.9926040,
+    "lng": -71.4576622,
+    "tags": [],
+    "description": "Smoked pork w/coleslaw & special hot sauce"
+  },
+  {
+    "id": "mttc_0044",
+    "name": "Mi Jalisco Mexican Grill & Cantina",
+    "address": "1070 S Willow St, Manchester, NH 03103",
+    "lat": 42.9611839,
+    "lng": -71.4390247,
+    "tags": ["gf", "vegetarian"],
+    "description": "Quesabirria tacos"
+  },
+  {
+    "id": "mttc_0045",
+    "name": "Oh Sugar Shack",
+    "address": "1015 Elm St, Manchester, NH 03101",
+    "lat": 42.9926086,
+    "lng": -71.4626962,
+    "tags": ["vegetarian"],
+    "description": "Cannoli tacos"
+  },
+  {
+    "id": "mttc_0046",
+    "name": "One Happy Clam Food Truck",
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "tags": [],
+    "description": "Blackened grilled shrimp taco w/boom sauce",
+    "notes": "Food truck; no fixed Manchester address"
+  },
+  {
+    "id": "mttc_0047",
+    "name": "Osaka",
+    "address": "1077 Elm St, Manchester, NH 03101",
+    "lat": 42.9933592,
+    "lng": -71.4628721,
+    "tags": [],
+    "description": "Spicy crunchy crab & or tuna & handrolls"
+  },
+  {
+    "id": "mttc_0048",
+    "name": "Patz Deli",
+    "address": "1110 Elm St, Manchester, NH 03101",
+    "lat": 42.9941552,
+    "lng": -71.4627528,
+    "tags": [],
+    "description": "Soft Mexican chicken salad taco w/crushed Fritos & sriracha"
+  },
+  {
+    "id": "mttc_0049",
+    "name": "Paulie’s Hot Dogs & Catering",
+    "address": "Manchester, NH",
+    "lat": 42.9956400,
+    "lng": -71.4547890,
+    "tags": [],
+    "description": "All Beef Nathan's hot dog in a flour taco w/Mozambique sauce",
+    "notes": "Catering business; approximate Manchester centroid used for POC"
+  },
+  {
+    "id": "mttc_0050",
+    "name": "Pho Golden Bowl",
+    "address": "936 Hanover St, Manchester, NH 03104",
+    "lat": 42.9918653,
+    "lng": -71.4439849,
+    "tags": [],
+    "description": "Pho Taco - Beef, Sour carrot, rice noodles, basil"
   }
 
 ]
