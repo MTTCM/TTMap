@@ -596,6 +596,96 @@
       "address": "turn14search0",
       "latlng_proxy": "turn12search7"
     }
+  },
+  {
+    "id": "mttc_0061",
+    "name": "Strange Brew Tavern",
+    "address": "88 Market St, Manchester, NH 03101",
+    "lat": 42.9944709,
+    "lng": -71.4559987,
+    "tags": [],
+    "description": "Pulled pork taco with house slaw"
+  },
+  {
+    "id": "mttc_0062",
+    "name": "Sub Zero Nitrogen Ice Cream",
+    "address": "808 Elm St, Manchester, NH 03101",
+    "lat": 42.9894685,
+    "lng": -71.4633372,
+    "tags": ["vegetarian"],
+    "description": "Ice cream tacos flash frozen with liquid nitrogen"
+  },
+  {
+    "id": "mttc_0063",
+    "name": "Stashbox Brewing Co.",
+    "address": "109 Ash St, Manchester, NH 03104",
+    "lat": 42.9994024,
+    "lng": -71.4516725,
+    "tags": [],
+    "description": "Beer-braised pork taco with pickled onion"
+  },
+  {
+    "id": "mttc_0064",
+    "name": "Taco Party",
+    "address": "8 Central St, Manchester, NH 03101",
+    "lat": 42.9932356,
+    "lng": -71.4582871,
+    "tags": ["vegetarian", "vegan"],
+    "description": "Plant-based tacos with rotating seasonal fillings"
+  },
+  {
+    "id": "mttc_0065",
+    "name": "Taj India",
+    "address": "194 S Willow St, Manchester, NH 03103",
+    "lat": 42.9734732,
+    "lng": -71.4398569,
+    "tags": ["vegetarian", "gf"],
+    "description": "Chicken tikka or vegetarian curry taco"
+  },
+  {
+    "id": "mttc_0066",
+    "name": "Taqueria Y Pastelitos To Go",
+    "address": "248 Wilson St, Manchester, NH 03103",
+    "lat": 42.9794368,
+    "lng": -71.4407746,
+    "tags": [],
+    "description": "Classic street tacos with house-made tortillas"
+  },
+  {
+    "id": "mttc_0067",
+    "name": "The Bridge Cafe on Elm",
+    "address": "1117 Elm St, Manchester, NH 03101",
+    "lat": 42.9944805,
+    "lng": -71.4626417,
+    "tags": ["vegetarian"],
+    "description": "Breakfast taco with egg, cheese & roasted vegetables"
+  },
+  {
+    "id": "mttc_0068",
+    "name": "The Crown Tavern",
+    "address": "99 Hanover St, Manchester, NH 03101",
+    "lat": 42.9919363,
+    "lng": -71.4574621,
+    "tags": [],
+    "description": "Fried chicken taco with spicy aioli"
+  },
+  {
+    "id": "mttc_0069",
+    "name": "The Hop Knot",
+    "address": "1015 Elm St, Manchester, NH 03101",
+    "lat": 42.9926086,
+    "lng": -71.4626962,
+    "tags": ["vegetarian"],
+    "description": "Pretzel-shell taco with beer cheese & fillings"
+  },
+  {
+    "id": "mttc_0070",
+    "name": "The Foundry",
+    "address": "50 Commercial St, Manchester, NH 03101",
+    "lat": 42.9934634,
+    "lng": -71.4645132,
+    "tags": [],
+    "description": "Short rib taco with roasted peppers"
   }
 
 ]
