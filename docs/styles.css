@@ -1,17 +1,23 @@
 :root {
-  --bg: #ffffff;
   --fg: #111;
-  --muted: #666;
-  --border: #e6e6e6;
+  --muted: #6b6258;
+
+  /* Warm neutrals (no pure white in header/tabs) */
+  --app-bg: #fbf7f1;        /* tortilla */
+  --header-surface: #f2ece2; /* slightly darker/cooler than app bg */
+  --content-surface: #fffdf7; /* map/list surface + selected tab */
+
+  --border: rgba(17, 17, 17, 0.14);
+  --border-strong: rgba(17, 17, 17, 0.18);
+
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   --header-h: 56px;
   --radius: 12px;
   --tap: 44px;
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-  /* Soft Card Map */
-  --shell-bg: #fbf7f1; /* warm, subtle, neutral */
-  --map-gap: 10px; /* 8–12px breathing room */
+  /* existing */
+  --map-gap: 10px;
 }
 
 * {
@@ -26,7 +32,7 @@ body {
 
 body {
   font-family: var(--font);
-  background: var(--shell-bg);
+  background: var(--app-bg);
   color: var(--fg);
 }
 
@@ -36,52 +42,110 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+/* Header (two-row, warm, sticky) */
 .app-header {
-  height: var(--header-h);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
+  padding: 10px 10px 0;
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--header-surface);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* rows */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.header-row--top {
+  padding-bottom: 8px;
+}
+
+.header-row--bottom {
+  align-items: flex-end; /* helps tabs sit like folder tabs */
+}
+
 .app-title {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
   white-space: nowrap;
 }
 
-/* Tabs (segmented control) */
+/* Tabs (folder tabs) */
 .tabs {
-  justify-self: center;
   display: inline-flex;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  overflow: hidden;
-  background: #f7f7f7;
+  gap: 6px;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
 }
 
+/* folder-tab shape: rounded top only, flat bottom */
 .tab {
-  height: 36px;
-  min-width: 78px;
-  padding: 0 12px;
-  border: 0;
-  background: transparent;
+  height: 38px;
+  min-width: 84px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 12px 12px 0 0;
+  background: var(--header-surface);
   color: var(--fg);
-  font-weight: 600;
+  font-weight: 800;
   font-size: 14px;
 }
 
+/* active tab looks “in front” + matches content surface */
 .tab.is-active {
-  background: #fff;
-  box-shadow: inset 0 0 0 1px var(--border);
+  background: var(--content-surface);
+  border-color: var(--border-strong);
+  border-bottom-color: var(--content-surface); /* hides the header bottom rule under it */
+  position: relative;
+  z-index: 2;
+}
+
+/* affordance */
+.tab:active {
+  transform: translateY(0.5px);
+}
+.tab:focus-visible {
+  outline: 2px solid rgba(17, 17, 17, 0.25);
+  outline-offset: 2px;
+}
+
+/* Filters action (icon + label, rectangular, not pill) */
+.filters-btn {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 10px; /* subtle rounding, NOT pill */
+  border: 1px solid var(--border);
+  background: var(--header-surface); /* matches unselected tabs */
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.filters-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.filters-btn:active {
+  background: rgba(17, 17, 17, 0.06);
+}
+
+.filters-btn:focus-visible {
+  outline: 2px solid rgba(17, 17, 17, 0.25);
+  outline-offset: 2px;
 }
 
 /* Right-side actions */
@@ -97,11 +161,15 @@ body {
   height: var(--tap);
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--content-surface);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+}
+
+.icon-btn:active {
+  background: rgba(17, 17, 17, 0.06);
 }
 
 .icon-btn svg {
@@ -145,10 +213,10 @@ body {
 /* Soft Card Map framing */
 .map-card {
   flex: 1;
-  background: #fff; /* neutral card surface so map tiles don't look tinted */
-  border: 1px solid rgba(0, 0, 0, 0.08); /* subtle separation */
-  border-radius: 12px; /* small corner radius */
-  overflow: hidden; /* clip tiles to rounded corners */
+  background: var(--content-surface);
+  border: 1px solid rgba(17, 17, 17, 0.10);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Leaflet container */
