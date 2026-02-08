@@ -461,6 +461,141 @@
     "lng": -71.4439849,
     "tags": [],
     "description": "Pho Taco - Beef, Sour carrot, rice noodles, basil"
+  },
+  {
+    "id": "mttc_0051",
+    "name": "Piccola Italia Ristorante",
+    "address": "815 Elm St, Manchester, NH 03101",
+    "lat": 42.9897106,
+    "lng": -71.4632977,
+    "tags": [],
+    "description": "",
+    "notes": "Address sourced from listing; lat/lng is an approximate proxy using the nearest-known point on Elm St (very close block).",
+    "_sources": {
+      "address": "turn18search2",
+      "latlng_proxy": "turn17search3"
+    }
+  },
+  {
+    "id": "mttc_0052",
+    "name": "Playa Bowls",
+    "address": "555 Hooksett Rd, Manchester, NH 03104",
+    "lat": null,
+    "lng": null,
+    "tags": [],
+    "description": "",
+    "notes": "Need geocode for 555 Hooksett Rd (Manchester). Address confirmed from Playa Bowls location page.",
+    "_sources": {
+      "address": "turn15search0"
+    }
+  },
+  {
+    "id": "mttc_0053",
+    "name": "Pours & Petals",
+    "address": null,
+    "lat": null,
+    "lng": null,
+    "tags": [],
+    "description": "",
+    "notes": "Ambiguity: online business listing I found is for Concord, NH (not Manchester). If this stop is on your Taco Tour map, we need the Manchester address (or confirm it’s intended to be Concord).",
+    "_sources": {
+      "potential_mismatch": "turn15search8"
+    }
+  },
+  {
+    "id": "mttc_0054",
+    "name": "Presto Craft Kitchen",
+    "address": "168 Amory St, Manchester, NH 03102",
+    "lat": 42.9931979,
+    "lng": -71.4773279,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from Presto site. Lat/lng sourced from a listing for the same street address (168 Amory St).",
+    "_sources": {
+      "address": "turn12search1",
+      "latlng": "turn12search0"
+    }
+  },
+  {
+    "id": "mttc_0055",
+    "name": "Queen City Cupcakes",
+    "address": "816 Elm St, Manchester, NH 03101",
+    "lat": 42.9897106,
+    "lng": -71.4632977,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from Queen City Cupcakes contact page. Lat/lng is an approximate proxy using the nearest-known point on Elm St (very close: 814 Elm).",
+    "_sources": {
+      "address": "turn16search2",
+      "latlng_proxy": "turn17search3"
+    }
+  },
+  {
+    "id": "mttc_0056",
+    "name": "Rare Breed Coffee",
+    "address": "1000 Elm St, Manchester, NH 03101",
+    "lat": 42.9925156,
+    "lng": -71.4637847,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from business listing. Lat/lng sourced from a POI at the same street number (1000 Elm St).",
+    "_sources": {
+      "address": "turn16search1",
+      "latlng": "turn17search0"
+    }
+  },
+  {
+    "id": "mttc_0057",
+    "name": "Shopper’s Pub + Eatery at Indian Head",
+    "address": "18 Lake Ave, Manchester, NH 03101",
+    "lat": 42.9871546,
+    "lng": -71.4630675,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from venue site. Lat/lng is approximate using the Lake Ave & Elm St intersection nearby.",
+    "_sources": {
+      "address": "turn18search1",
+      "latlng_proxy": "turn9search5"
+    }
+  },
+  {
+    "id": "mttc_0058",
+    "name": "Shorty’s Mexican Roadhouse",
+    "address": "1050 Bicentennial Dr, Manchester, NH 03104",
+    "lat": 43.0197323,
+    "lng": -71.4483036,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from Shorty’s site; lat/lng from a dedicated POI entry.",
+    "_sources": {
+      "address": "turn15search1",
+      "latlng": "turn17search1"
+    }
+  },
+  {
+    "id": "mttc_0059",
+    "name": "SoHo Bistro",
+    "address": null,
+    "lat": null,
+    "lng": null,
+    "tags": [],
+    "description": "",
+    "notes": "Need confirm the exact business name + street address in Manchester (several similarly-named results exist; I’m not confident enough to lock coordinates without the precise address).",
+    "_sources": {}
+  },
+  {
+    "id": "mttc_0060",
+    "name": "Stark Brewing Company",
+    "address": "500 N Commercial St, Manchester, NH 03101",
+    "lat": 42.9921096,
+    "lng": -71.4670406,
+    "tags": [],
+    "description": "",
+    "notes": "Address confirmed from Stark site. Lat/lng is approximate using Manchester downtown coordinates (needs a precise geocode for 500 N Commercial).",
+    "_sources": {
+      "address": "turn14search0",
+      "latlng_proxy": "turn12search7"
+    }
   }
 
 ]
