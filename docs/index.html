@@ -18,69 +18,73 @@
   <body>
     <div class="app" id="app">
       <header class="app-header" role="banner">
-        <div class="header-left">
-          <div class="app-title" aria-label="Site title">MTT Map</div>
-        </div>
+  <!-- Row 1 — Title row -->
+  <div class="header-row header-row--top">
+    <div class="app-title" aria-label="Site title">Taco Tour Companion</div>
 
-        <nav class="tabs" role="tablist" aria-label="Views">
-          <button
-            type="button"
-            class="tab is-active"
-            role="tab"
-            aria-selected="true"
-            aria-controls="view-map"
-            id="tab-map"
-            data-view="map"
-          >
-            Map
-          </button>
-          <button
-            type="button"
-            class="tab"
-            role="tab"
-            aria-selected="false"
-            aria-controls="view-list"
-            id="tab-list"
-            data-view="list"
-          >
-            List
-          </button>
-        </nav>
+    <!-- Info (About) stays the same ID/behavior -->
+    <button
+      type="button"
+      class="icon-btn"
+      id="btn-about"
+      aria-label="Info"
+      title="Info"
+    >
+      <!-- info icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm-1-8.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
 
-        <div class="header-actions">
-          <button
-            type="button"
-            class="icon-btn"
-            id="btn-filters"
-            aria-label="Filters"
-            title="Filters"
-          >
-            <!-- simple funnel-ish icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M3 5h18l-7 8v5l-4 2v-7L3 5z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
+  <!-- Row 2 — Navigation/action row -->
+  <div class="header-row header-row--bottom">
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button
+        type="button"
+        class="tab is-active"
+        role="tab"
+        aria-selected="true"
+        aria-controls="view-map"
+        id="tab-map"
+        data-view="map"
+      >
+        Map
+      </button>
+      <button
+        type="button"
+        class="tab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="view-list"
+        id="tab-list"
+        data-view="list"
+      >
+        List
+      </button>
+    </nav>
 
-          <button
-            type="button"
-            class="icon-btn"
-            id="btn-about"
-            aria-label="About"
-            title="About"
-          >
-            <!-- info icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm-1-8.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+    <!-- Filters stays RIGHT of tabs and keeps same ID/behavior -->
+    <button
+      type="button"
+      class="filters-btn"
+      id="btn-filters"
+      aria-label="Filters"
+      title="Filters"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M3 5h18l-7 8v5l-4 2v-7L3 5z"
+          fill="currentColor"
+        />
+      </svg>
+      <span>Filters</span>
+    </button>
+  </div>
+</header>
 
       <main class="app-main" role="main">
         <!-- MAP VIEW -->
