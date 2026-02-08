@@ -199,17 +199,16 @@ body {
 .list {
   height: 100%;
   overflow: auto;
-  padding: 10px 10px 90px;
-  background: #fff;
-  border-radius: 12px;
+  padding: 0 0 90px;
+  background: transparent;
 }
 
 .list-item {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 12px;
-  margin: 10px 0;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  margin: 10px;
+  background: #fff;
 }
 
 .list-item-header {
