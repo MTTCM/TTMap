@@ -686,6 +686,205 @@
     "lng": -71.4645132,
     "tags": [],
     "description": "Short rib taco with roasted peppers"
-  }
+  },
+
+{
+  "id": "mttc_0071",
+  "name": "The Currier Museum of Art",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["vegetarian"],
+  "description": "Hawaiian or falafel tacos"
+},
+{
+  "id": "mttc_0072",
+  "name": "The Farm Bar and Grille",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "BBQ pulled pork taco w/coleslaw & cheddar"
+},
+{
+  "id": "mttc_0073",
+  "name": "The Goat",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Pulled pork taco w/roasted corn & queso"
+},
+{
+  "id": "mttc_0074",
+  "name": "The HopKnot",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf", "vegan"],
+  "description": "Walking Taco w/beer cheese & jalapeno honey"
+},
+{
+  "id": "mttc_0075",
+  "name": "The Patio @ Hilton Garden Inn Manchester",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "PB&J Taco - Blueberry tarragon jam, peanut chicken, sour cream & onion chips & sirarcha aoli"
+},
+{
+  "id": "mttc_0076",
+  "name": "The Pint Publik House",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Jamaican curry chicken soft taco w/cheddar"
+},
+{
+  "id": "mttc_0077",
+  "name": "The Potato Concept",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf", "vegetarian", "vegan"],
+  "description": "Ground beef Po’tacos w/cheddar, lettuce & tomato or black bean salad w/arugula in a potato shell"
+},
+{
+  "id": "mttc_0078",
+  "name": "The Red Barn Diner",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Breakfast tacos"
+},
+{
+  "id": "mttc_0079",
+  "name": "The Sleazy Vegan",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf", "vegan"],
+  "description": "Chipotle sweet potato taco"
+},
+{
+  "id": "mttc_0080",
+  "name": "The Stoned Wall Bar & Grille",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Jerked chicken & kiwi salsa taco"
+},
+{
+  "id": "mttc_0081",
+  "name": "Thirsty Moose Taphouse",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Beef & cheese taco w/pico de gallo and sour cream"
+},
+{
+  "id": "mttc_0082",
+  "name": "Thistle’s Salsa",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf", "vegan"],
+  "description": "Pulled pork taco w/cabbage lime slaw & Thistle’s salsa or corn chips and 4 oz cups of Thistle's Salsa"
+},
+{
+  "id": "mttc_0083",
+  "name": "Thousand Crane",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Teriyaki chicken taco"
+},
+{
+  "id": "mttc_0084",
+  "name": "Tidewater Catering Group",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Pork carnitas tacos w/slaw & cilantro crema"
+},
+{
+  "id": "mttc_0085",
+  "name": "To Share Brewing Company",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["vegetarian"],
+  "description": "The Elvis: Flour tortilla w/banana slices, honey drizzle & optional bacon"
+},
+{
+  "id": "mttc_0086",
+  "name": "Tommy's Pizzeria",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Buffalo chicken taco"
+},
+{
+  "id": "mttc_0087",
+  "name": "USA Chicken & Biscuit",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Jamaican beef patty w/lettuce, cheese & famous white sauce"
+},
+{
+  "id": "mttc_0088",
+  "name": "Walking Gourmet",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf"],
+  "description": "Birria tacos w/candied jalapenos & fire-roasted aioli"
+},
+{
+  "id": "mttc_0089",
+  "name": "Yankee Lanes",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Pulled pork taco in a white flour tortilla"
+},
+{
+  "id": "mttc_0090",
+  "name": "110 Grill",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf"],
+  "description": "Pulled pork taco w/lime crema & pineapple salsa"
+},
+{
+  "id": "mttc_0091",
+  "name": "815 Cocktails & Provisions",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": ["gf"],
+  "description": "BBQ’d Chicken, tacos w/Alabama white sauce, marinated collard greens, vidalia onions, lime"
+},
+{
+  "id": "mttc_0092",
+  "name": "900 Degrees",
+  "address": "",
+  "lat": null,
+  "lng": null,
+  "tags": [],
+  "description": "Chicken tacos"
+}
 
 ]
