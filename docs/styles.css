@@ -8,6 +8,10 @@
   --radius: 12px;
   --tap: 44px;
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* Soft Card Map: warm app shell background (neutral, very subtle) */
+  --shell-bg: #fbf7f1;
+  --map-pad: 10px; /* target 8–12px outer spacing */
 }
 
 * {
@@ -22,7 +26,7 @@ body {
 
 body {
   font-family: var(--font);
-  background: var(--bg);
+  background: var(--shell-bg);
   color: var(--fg);
 }
 
@@ -117,20 +121,31 @@ body {
   width: 100%;
 }
 
+/* Map view (Soft Card Map framing) */
+#view-map {
+  position: relative;
+  padding: var(--map-pad); /* modest outer spacing around the map card */
+}
+
+.map-card {
+  height: 100%;
+  width: 100%;
+  background: #fff; /* neutral card surface */
+  border: 1px solid rgba(0, 0, 0, 0.08); /* subtle separation from warm shell */
+  border-radius: 12px; /* small corner radius */
+  overflow: hidden; /* clip tiles to rounded corners */
+}
+
 #map {
   height: 100%;
   width: 100%;
 }
 
 /* Map view overlays (Locate + toast) */
-#view-map {
-  position: relative;
-}
-
 .locate-btn {
   position: absolute;
-  top: calc(10px + env(safe-area-inset-top));
-  right: calc(10px + env(safe-area-inset-right));
+  top: calc(var(--map-pad) + 10px + env(safe-area-inset-top));
+  right: calc(var(--map-pad) + 10px + env(safe-area-inset-right));
   z-index: 1000; /* above tiles; below overlays */
 }
 
@@ -140,7 +155,7 @@ body {
 
 .map-toast {
   position: absolute;
-  top: calc(10px + env(safe-area-inset-top));
+  top: calc(var(--map-pad) + 10px + env(safe-area-inset-top));
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -432,6 +447,7 @@ hr {
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
 /* Taco marker (Leaflet divIcon with inline SVG) */
 .leaflet-div-icon.taco-marker {
   background: transparent;
