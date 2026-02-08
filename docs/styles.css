@@ -10,8 +10,8 @@
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
   /* Soft Card Map */
-  --shell-bg: #fbf7f1;
-  --map-gap: 10px; /* 8–12px visual breathing room */
+  --shell-bg: #fbf7f1; /* warm, subtle, neutral */
+  --map-gap: 10px; /* 8–12px breathing room */
 }
 
 * {
@@ -54,10 +54,11 @@ body {
 .app-title {
   font-weight: 700;
   font-size: 14px;
+  line-height: 1;
   white-space: nowrap;
 }
 
-/* Tabs */
+/* Tabs (segmented control) */
 .tabs {
   justify-self: center;
   display: inline-flex;
@@ -73,6 +74,7 @@ body {
   padding: 0 12px;
   border: 0;
   background: transparent;
+  color: var(--fg);
   font-weight: 600;
   font-size: 14px;
 }
@@ -82,10 +84,11 @@ body {
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
-/* Header actions */
+/* Right-side actions */
 .header-actions {
   display: inline-flex;
   gap: 6px;
+  justify-self: end;
 }
 
 /* Icon buttons */
@@ -98,6 +101,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .icon-btn svg {
@@ -108,13 +112,18 @@ body {
 /* Main content */
 .app-main {
   flex: 1;
-  min-height: 0;
+  min-height: 0; /* important for flex children overflow */
   position: relative;
 }
 
 .view {
   height: 100%;
   width: 100%;
+}
+
+/* Make hidden views *actually* not render (defensive, fixes Firefox oddities) */
+.view[hidden] {
+  display: none !important;
 }
 
 /* =========================
@@ -128,13 +137,13 @@ body {
   padding: var(--map-gap);
 }
 
-/* Soft Card Map */
+/* Soft Card Map framing */
 .map-card {
   flex: 1;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  overflow: hidden;
+  background: #fff; /* neutral card surface so map tiles don't look tinted */
+  border: 1px solid rgba(0, 0, 0, 0.08); /* subtle separation */
+  border-radius: 12px; /* small corner radius */
+  overflow: hidden; /* clip tiles to rounded corners */
 }
 
 /* Leaflet container */
@@ -143,12 +152,12 @@ body {
   width: 100%;
 }
 
-/* Map overlays */
+/* Map view overlays (Locate + toast) */
 .locate-btn {
   position: absolute;
   top: calc(var(--map-gap) + 10px + env(safe-area-inset-top));
   right: calc(var(--map-gap) + 10px + env(safe-area-inset-right));
-  z-index: 1000;
+  z-index: 1000; /* above tiles; below overlays */
 }
 
 .locate-btn:disabled {
@@ -197,9 +206,39 @@ body {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
+.list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .list-item-title {
   font-weight: 800;
   font-size: 15px;
+  margin: 0;
+}
+
+.list-item-desc {
+  margin: 6px 0 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+.list-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #fafafa;
+  font-weight: 600;
 }
 
 .muted {
@@ -220,6 +259,34 @@ body {
   z-index: 1100;
 }
 
+#card h2 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+#card p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Favorites */
+.fav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.fav-btn.is-fav {
+  color: #e0245e;
+}
+
 /* Overlays */
 .overlay[hidden] {
   display: none;
@@ -237,12 +304,165 @@ body {
   background: rgba(0, 0, 0, 0.35);
 }
 
-/* Reduce mobile tap highlight */
+/* Filters: bottom sheet */
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-header {
+  height: 52px;
+  padding: 8px 10px 8px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sheet-title {
+  font-weight: 800;
+}
+
+.sheet-body {
+  padding: 14px;
+  overflow: auto;
+}
+
+/* Filter controls */
+.filter-block {
+  margin: 0 0 14px;
+}
+
+.filter-label {
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.filter-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.filter-hint {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #fafafa;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fafafa;
+}
+
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Buttons */
+.primary-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+}
+
+.secondary-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--fg);
+  font-weight: 800;
+}
+
+/* About screen */
+.about {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-header {
+  height: var(--header-h);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: var(--tap) 1fr var(--tap);
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.about-title {
+  text-align: center;
+  font-weight: 800;
+}
+
+.about-body {
+  padding: 16px;
+  overflow: auto;
+}
+
+.about-body a {
+  color: inherit;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* Reduce tap highlight weirdness on mobile */
 button {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Taco marker */
+/* Taco marker (Leaflet divIcon with inline SVG) */
 .leaflet-div-icon.taco-marker {
   background: transparent;
   border: 0;
