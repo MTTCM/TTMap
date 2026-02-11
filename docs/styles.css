@@ -328,6 +328,24 @@ body {
   gap: 8px;
 }
 
+/* Map card: content column has a topline (title/tags + close) */
+.vendor-topline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vendor-topline .vendor-title {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Ensure close stays far right */
+.vendor-topline .vendor-close {
+  flex: 0 0 auto;
+}
+
+
 /* List top row aligns like map card (no close button) */
 .list-item .vendor-top {
   align-items: center;
