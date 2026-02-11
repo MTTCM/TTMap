@@ -126,6 +126,28 @@ const cardDesc = document.getElementById("card-desc");
 const cardFavBtn = document.getElementById("card-fav");
 const cardCloseBtn = document.getElementById("card-close");
 
+function initTabCardSuppression() {
+  const tabMap = document.getElementById("tab-map");
+  const tabList = document.getElementById("tab-list");
+  if (!tabMap || !tabList) return;
+
+  const onMap = () => setCardSuppressed(false);
+  const onList = () => setCardSuppressed(true);
+
+  // Use capture so it runs even if ui.js stops propagation
+  tabMap.addEventListener("click", onMap, true);
+  tabList.addEventListener("click", onList, true);
+
+  // Also react if ui.js changes aria-selected without click (defensive)
+  const mo = new MutationObserver(() => {
+    const mapSelected = tabMap.getAttribute("aria-selected") === "true";
+    setCardSuppressed(!mapSelected);
+  });
+  mo.observe(tabMap, { attributes: true, attributeFilter: ["aria-selected"] });
+}
+
+initTabCardSuppression();
+
 // List container
 const listEl = document.getElementById("list");
 
@@ -309,6 +331,17 @@ function toggleFavorite(id, sourceBtn = null) {
 // ---------------------------
 // Tag chip rendering (Map card + List cards)
 // ---------------------------
+function formatTagLabel(tag) {
+  const raw = String(tag || "").trim();
+  const t = raw.toLowerCase();
+
+  if (t === "gf" || t === "gluten-free" || t === "glutenfree") return "GF";
+  if (t === "vegetarian" || t === "veg") return "V";
+  if (t === "vegan") return "VE";
+
+  return raw.toUpperCase();
+}
+
 function renderTagChips(container, tags) {
   if (!container) return;
   container.innerHTML = "";
@@ -318,7 +351,7 @@ function renderTagChips(container, tags) {
   for (const t of tags) {
     const chip = document.createElement("span");
     chip.className = "tag-chip";
-    chip.textContent = String(t);
+    chip.textContent = formatTagLabel(t);
     container.appendChild(chip);
   }
 }
@@ -326,6 +359,21 @@ function renderTagChips(container, tags) {
 // ---------------------------
 // Card show/hide
 // ---------------------------
+let cardSuppressedByTab = false;
+
+function setCardSuppressed(on) {
+  cardSuppressedByTab = !!on;
+  if (!card) return;
+
+  if (cardSuppressedByTab) {
+    // Hide but do NOT clear selection/state
+    card.style.display = "none";
+  } else {
+    // If a stop is selected, restore visibility
+    if (currentCardStopId) card.style.display = "block";
+  }
+}
+
 function showCard(stop) {
   currentCardStopId = stop.id || null;
 
@@ -341,7 +389,7 @@ function showCard(stop) {
     setFavButtonState(cardFavBtn, false);
   }
 
-  if (card) card.style.display = "block";
+  if (card) card.style.display = cardSuppressedByTab ? "none" : "block";
 }
 
 function hideCard() {
@@ -414,7 +462,6 @@ function renderList(stops) {
 
   listEl.innerHTML = "";
 
-  // Optional: sort by name for readability
   const sorted = [...stops].sort((a, b) =>
     (a.name || "").localeCompare(b.name || "")
   );
@@ -435,10 +482,10 @@ function renderList(stops) {
     const cardEl = document.createElement("div");
     cardEl.className = "vendor-card";
 
-    const top = document.createElement("div");
-    top.className = "vendor-top";
+    // Grid row: [fav rail] [content]
+    const row = document.createElement("div");
+    row.className = "vendor-row";
 
-    // Far left: Favorite
     const fav = document.createElement("button");
     fav.type = "button";
     fav.className = "icon-btn fav-btn";
@@ -449,22 +496,21 @@ function renderList(stops) {
 
     fav.innerHTML = `
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z"
-        />
+        <path d="M12 21s-7.2-4.6-9.6-8.7C.7 9.2 2.1 6.2 5.2 5.3c1.8-.5 3.6.1 4.8 1.4 1.2-1.3 3-1.9 4.8-1.4 3.1.9 4.5 3.9 2.8 7-2.4 4.1-9.6 8.7-9.6 8.7z" />
       </svg>
     `;
 
-    // Favorite click must NOT trigger any row/card behavior
     fav.addEventListener("pointerdown", (e) => e.stopPropagation());
     fav.addEventListener("click", (e) => {
       e.stopPropagation();
       toggleFavorite(stop.id, fav);
     });
 
-    // Name + inline tags
-    const titleWrap = document.createElement("div");
-    titleWrap.className = "vendor-title";
+    const content = document.createElement("div");
+    content.className = "vendor-content";
+
+    const line = document.createElement("div");
+    line.className = "vendor-line";
 
     const name = document.createElement("div");
     name.className = "vendor-name";
@@ -474,20 +520,20 @@ function renderList(stops) {
     tags.className = "vendor-tags";
     renderTagChips(tags, stop.tags || []);
 
-    titleWrap.appendChild(name);
-    titleWrap.appendChild(tags);
+    line.appendChild(name);
+    line.appendChild(tags);
 
-    top.appendChild(fav);
-    top.appendChild(titleWrap);
-
-    // Body: description (always visible)
     const desc = document.createElement("div");
     desc.className = "vendor-desc";
     desc.textContent = stop.description || "";
 
-    cardEl.appendChild(top);
-    if (desc.textContent) cardEl.appendChild(desc);
+    content.appendChild(line);
+    if (desc.textContent) content.appendChild(desc);
 
+    row.appendChild(fav);
+    row.appendChild(content);
+
+    cardEl.appendChild(row);
     outer.appendChild(cardEl);
     listEl.appendChild(outer);
   }
