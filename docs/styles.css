@@ -292,16 +292,40 @@ body {
   background: transparent;
 }
 
+/* Wider cards + smaller gaps */
 .list-item {
-  padding: 12px;
-  margin: 10px;
-  background: transparent; /* outer container */
+  padding: 0;
+  margin: 8px 6px; /* closer to edges + less vertical gap */
+  background: transparent;
   border: 0;
 }
 
-/* Inner card */
 .list-item .vendor-card {
   padding: 12px;
+}
+
+/* List vendor layout: left rail (fav) + content (name/tags + desc) */
+.vendor-row {
+  display: grid;
+  grid-template-columns: var(--tap) 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.vendor-row .fav-btn {
+  align-self: center; /* visually centered across name+desc */
+}
+
+.vendor-content {
+  min-width: 0;
+}
+
+/* Name + chips on one line feel, wrap allowed */
+.vendor-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 /* List top row aligns like map card (no close button) */
@@ -355,8 +379,16 @@ body {
 
 .vendor-name {
   font-weight: 900;
-  font-size: 15px;
+  font-size: 17px; /* + ~2pt feel */
   line-height: 1.15;
+}
+
+.vendor-desc {
+  margin-top: 4px; /* tighter: fixes map-card “big gap” */
+  font-size: 14px;
+  color: #333;
+  line-height: 1.3;
+  white-space: normal; /* never truncate */
 }
 
 .vendor-tags {
@@ -376,12 +408,8 @@ body {
   color: var(--fg);
 }
 
-.vendor-desc {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #333;
-  line-height: 1.3;
-  white-space: normal; /* ensure no truncation */
+#card.vendor-card--map .vendor-top {
+  align-items: center;
 }
 
 /* Map overlay positioning (floating, inset, safe-area friendly) */
@@ -442,9 +470,8 @@ body {
   stroke-linejoin: round;
 }
 
-/* On state: filled (food accent) */
 .fav-btn.is-fav {
-  color: #e0245e;
+  color: #C0392B; /* salsa red */
 }
 
 .fav-btn.is-fav svg path {
