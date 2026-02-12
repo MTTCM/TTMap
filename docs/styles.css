@@ -736,22 +736,26 @@ button {
 }
 
 /* Hard halo ring + glow */
+.taco-marker.is-selected {
+  position: relative;
+  z-index: 10000 !important;
+}
+
 .taco-marker.is-selected::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 120%;
-  height: 120%;
+  width: 108%;
+  height: 108%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  background: rgba(255, 200, 80, 0.45);
-  box-shadow: 0 0 0 3px rgba(255, 200, 80, 0.95);
+
+  /* Teal halo */
+  background: rgba(76, 110, 245, 0.25);
+  box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.95);
+
   z-index: -1;
 }
 
-/* Optional but recommended: keep selected above nearby markers */
-.leaflet-marker-icon.taco-marker.is-selected {
-  z-index: 10000 !important;
-}
 
