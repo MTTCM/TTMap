@@ -158,6 +158,41 @@ const FAVORITES_KEY = "ttmap:favorites:v1";
 let favoriteIds = loadFavorites(); // Set<string>
 let currentCardStopId = null;
 
+// ---------------------------
+// Selected marker highlight (glow)
+// ---------------------------
+let selectedStopId = null;
+
+function setMarkerSelectedClass(id, on) {
+  const marker = markersById.get(id);
+  if (!marker) return;
+
+  const apply = () => {
+    const el = marker.getElement && marker.getElement();
+    if (!el) return;
+    el.classList.toggle("is-selected", !!on);
+  };
+
+  // If marker isn't on the map yet, its element won't exist.
+  // Apply once it gets added.
+  if (!marker.getElement || !marker.getElement()) {
+    marker.once("add", apply);
+  } else {
+    apply();
+  }
+}
+
+function setSelectedStop(id) {
+  // Clear previous
+  if (selectedStopId) setMarkerSelectedClass(selectedStopId, false);
+
+  selectedStopId = id || null;
+
+  // Set new
+  if (selectedStopId) setMarkerSelectedClass(selectedStopId, true);
+}
+
+
 // Data + markers (needed for filtering both views)
 let allStops = [];
 const markersById = new Map(); // id -> Leaflet marker
@@ -376,6 +411,9 @@ function setCardSuppressed(on) {
 
 function showCard(stop) {
   currentCardStopId = stop.id || null;
+ 
+  if (stop && stop.id) setSelectedStop(stop.id);
+  else setSelectedStop(null);
 
   if (cardName) cardName.textContent = stop.name || "";
   renderTagChips(cardTags, stop.tags || []);
@@ -394,7 +432,8 @@ function showCard(stop) {
 
 function hideCard() {
   currentCardStopId = null;
-  if (card) card.style.display = "none";
+  setSelectedStop(null);
+  card.style.display = "none";
 }
 
 // Dismiss when tapping the map (Leaflet event)
