@@ -443,6 +443,29 @@ body {
   overflow: auto;       /* scroll within card if extremely long */
 }
 
+/* Map card close button: always top-right */
+#card.vendor-card--map {
+  /* already position: fixed; this ensures it anchors absolute children */
+  position: fixed;
+}
+
+.vendor-close--map {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+/* Prevent title/chips from flowing under the close button */
+#card.vendor-card--map .vendor-content {
+  padding-right: calc(var(--tap) + 12px);
+}
+
+#card.vendor-card--map .vendor-topline {
+  align-items: flex-start;
+}
+
+
 .vendor-close {
   flex: 0 0 auto;
 }
