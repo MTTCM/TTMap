@@ -134,6 +134,21 @@
 
 <!-- Map detail card (floating overlay) -->
 <div id="card" class="vendor-card vendor-card--map" aria-live="polite">
+    <!-- Close button: anchored top-right of the card -->
+  <button
+    type="button"
+    class="icon-btn vendor-close vendor-close--map"
+    id="card-close"
+    aria-label="Close"
+    title="Close"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
   <div class="vendor-row">
     <!-- Left rail: Favorite -->
     <button
@@ -158,23 +173,7 @@
           <div id="card-name" class="vendor-name"></div>
           <div id="card-tags" class="vendor-tags" aria-label="Tags"></div>
         </div>
-
-        <button
-          type="button"
-          class="icon-btn vendor-close"
-          id="card-close"
-          aria-label="Close"
-          title="Close"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"
-              fill="currentColor"
-            />
-          </svg>
-        </button>
       </div>
-
       <div id="card-desc" class="vendor-desc"></div>
     </div>
   </div>
