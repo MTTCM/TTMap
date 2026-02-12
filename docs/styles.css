@@ -189,6 +189,16 @@ body {
   padding: 0;
 }
 
+/* Optical centering: heart */
+.fav-btn svg {
+  transform: translate(-1px, 0);
+}
+
+/* Optical centering: close X */
+.vendor-close svg {
+  transform: translate(-1px, 0);
+}
+
 .icon-btn:active {
   background: rgba(17, 17, 17, 0.06);
 }
