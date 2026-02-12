@@ -729,3 +729,16 @@ button {
   width: 60px;
   height: 60px;
 }
+
+/* Selected stop glow */
+.taco-marker.is-selected svg {
+  filter:
+    drop-shadow(0 0 8px rgba(255, 196, 0, 0.95))
+    drop-shadow(0 0 3px rgba(0, 0, 0, 0.25));
+}
+
+/* Optional but recommended: keep selected above nearby markers */
+.leaflet-marker-icon.taco-marker.is-selected {
+  z-index: 10000 !important;
+}
+
