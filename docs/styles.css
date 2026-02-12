@@ -191,12 +191,12 @@ body {
 
 /* Optical centering: heart */
 .fav-btn svg {
-  transform: translate(-10px, 0) scale(1.2);
+  transform: translate(8px, 0) scale(1.8);
 }
 
 /* Optical centering: close X */
 .vendor-close svg {
-  transform: translate(-10px, 0);
+  transform: translate(8px, 0) scale(1.5);
 }
 
 .icon-btn:active {
