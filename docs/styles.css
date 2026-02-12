@@ -744,10 +744,10 @@ button {
 .taco-marker.is-selected::before {
   content: "";
   position: absolute;
-  left: 60%;
-  top: 60%;
-  width: 90%;
-  height: 90%;
+  left: 58%;
+  top: 53%;
+  width: 95%;
+  height: 95%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
 
