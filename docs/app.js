@@ -667,7 +667,7 @@ function getTacoIcon() {
       <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
             fill="#F2B84B"
             stroke="#2B1B10"
-            stroke-width="0.5"
+            stroke-width="1.2"
             stroke-linejoin="round"/>
       <!-- Ground beef -->
       <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
@@ -680,7 +680,7 @@ function getTacoIcon() {
             transform="translate(4 0)"
             fill="#F2B84B"
             stroke="#2B1B10"
-            stroke-width="0.5"
+            stroke-width="1.2"
             stroke-linejoin="round"/>
     </svg>
   `;
