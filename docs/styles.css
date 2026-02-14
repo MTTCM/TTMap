@@ -310,15 +310,15 @@ body {
   border: 0;
 }
 
-/* Selected list item highlight (sync w/ selectedStopId) */
+/* Selected list item highlight (THICK border + darker shade, no underline) */
 .list-item.is-selected .vendor-card {
-  border-color: rgba(17, 17, 17, 0.40);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+  border: 4px solid rgba(17, 17, 17, 0.75);
+  background: #efe2cf; /* darker tortilla tint */
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
 }
 
 .list-item.is-selected .vendor-name {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 .list-item .vendor-card {
@@ -366,7 +366,6 @@ body {
   flex: 0 0 auto;
 }
 
-
 /* List top row aligns like map card (no close button) */
 .list-item .vendor-top {
   align-items: center;
@@ -376,13 +375,11 @@ body {
   margin-top: 6px;
 }
 
-
 .list-item-desc {
   margin: 6px 0 8px;
   color: #333;
   font-size: 14px;
 }
-
 
 .muted {
   color: var(--muted);
@@ -460,13 +457,12 @@ body {
   padding: 12px;
   display: none;
   z-index: 1100;
-  max-height: 70vh;     /* allows very long descriptions without breaking viewport */
-  overflow: auto;       /* scroll within card if extremely long */
+  max-height: 70vh;
+  overflow: auto;
 }
 
 /* Map card close button: always top-right */
 #card.vendor-card--map {
-  /* already position: fixed; this ensures it anchors absolute children */
   position: fixed;
 }
 
@@ -487,11 +483,9 @@ body {
   align-items: flex-start;
 }
 
-
 .vendor-close {
   flex: 0 0 auto;
 }
-
 
 #card h2 {
   margin: 0 0 4px;
@@ -520,7 +514,6 @@ body {
   transition: transform 120ms ease;
 }
 
-/* Outline heart by default */
 .fav-btn svg {
   width: 20px;
   height: 20px;
@@ -542,7 +535,6 @@ body {
   stroke: none;
 }
 
-/* Minimal acknowledgement on toggle */
 @keyframes favPop {
   0% { transform: scale(1); }
   50% { transform: scale(1.08); }
@@ -552,7 +544,6 @@ body {
 .fav-btn.fav-pop {
   animation: favPop 140ms ease-out;
 }
-
 
 /* Overlays */
 .overlay[hidden] {
@@ -739,4 +730,10 @@ button {
   display: block;
   width: 60px;
   height: 60px;
+}
+
+/* Selected marker SVG has its own viewBox; let it size by iconSize */
+.taco-marker--selected svg {
+  width: 72px;
+  height: 32px;
 }
