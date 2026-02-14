@@ -1,8 +1,11 @@
 // app.js
 // Map + shared data load + minimal list rendering (no framework) + Favorites w/ localStorage
 // + Global Filters (diet tags + favorites-only + search) shared across Map/List with persistence
+// + Selection sync across Map/List + selected marker icon swap + bring-to-front zIndex (marker_bowl)
 
+//
 // Manchester, NH center
+//
 const map = L.map("map").setView([42.9956, -71.4548], 14);
 
 // expose for ui.js (so we can invalidateSize() after tab switching)
@@ -88,7 +91,7 @@ function initLocateUI() {
   const btn = document.getElementById("btn-locate");
   if (!btn) return;
 
-  // Prevent map tap handlers from firing (which would dismiss the card)
+  // Prevent map tap handlers from firing (which would dismiss selection/card)
   btn.addEventListener("pointerdown", (e) => e.stopPropagation());
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -126,28 +129,6 @@ const cardDesc = document.getElementById("card-desc");
 const cardFavBtn = document.getElementById("card-fav");
 const cardCloseBtn = document.getElementById("card-close");
 
-function initTabCardSuppression() {
-  const tabMap = document.getElementById("tab-map");
-  const tabList = document.getElementById("tab-list");
-  if (!tabMap || !tabList) return;
-
-  const onMap = () => setCardSuppressed(false);
-  const onList = () => setCardSuppressed(true);
-
-  // Use capture so it runs even if ui.js stops propagation
-  tabMap.addEventListener("click", onMap, true);
-  tabList.addEventListener("click", onList, true);
-
-  // Also react if ui.js changes aria-selected without click (defensive)
-  const mo = new MutationObserver(() => {
-    const mapSelected = tabMap.getAttribute("aria-selected") === "true";
-    setCardSuppressed(!mapSelected);
-  });
-  mo.observe(tabMap, { attributes: true, attributeFilter: ["aria-selected"] });
-}
-
-initTabCardSuppression();
-
 // List container
 const listEl = document.getElementById("list");
 
@@ -156,11 +137,19 @@ const listEl = document.getElementById("list");
 // ---------------------------
 const FAVORITES_KEY = "ttmap:favorites:v1";
 let favoriteIds = loadFavorites(); // Set<string>
-let currentCardStopId = null;
+
+// ---------------------------
+// Selection (single source of truth)
+// ---------------------------
+let selectedStopId = null; // string | null
 
 // Data + markers (needed for filtering both views)
 let allStops = [];
 const markersById = new Map(); // id -> Leaflet marker
+
+// z-index offsets for bring-to-front behavior
+const DEFAULT_Z_INDEX_OFFSET = 0;
+const SELECTED_Z_INDEX_OFFSET = 1000;
 
 function loadFavorites() {
   try {
@@ -302,8 +291,8 @@ function updateFavoriteUI(id) {
     setFavButtonState(listBtn, on);
   }
 
-  // Update card heart if this stop is currently shown
-  if (currentCardStopId === id) {
+  // Update card heart if this stop is currently selected
+  if (selectedStopId === id) {
     setFavButtonState(cardFavBtn, on);
   }
 }
@@ -357,7 +346,7 @@ function renderTagChips(container, tags) {
 }
 
 // ---------------------------
-// Card show/hide
+// Card show/hide (driven by selectedStopId)
 // ---------------------------
 let cardSuppressedByTab = false;
 
@@ -370,12 +359,12 @@ function setCardSuppressed(on) {
     card.style.display = "none";
   } else {
     // If a stop is selected, restore visibility
-    if (currentCardStopId) card.style.display = "block";
+    if (selectedStopId) card.style.display = "block";
   }
 }
 
 function showCard(stop) {
-  currentCardStopId = stop.id || null;
+  if (!stop || !stop.id) return;
 
   if (cardName) cardName.textContent = stop.name || "";
   renderTagChips(cardTags, stop.tags || []);
@@ -383,25 +372,36 @@ function showCard(stop) {
   // Description is always visible, never truncated/collapsed
   if (cardDesc) cardDesc.textContent = stop.description || "";
 
-  if (currentCardStopId) {
-    setFavButtonState(cardFavBtn, isFavorite(currentCardStopId));
-  } else {
-    setFavButtonState(cardFavBtn, false);
-  }
+  setFavButtonState(cardFavBtn, isFavorite(stop.id));
 
   if (card) card.style.display = cardSuppressedByTab ? "none" : "block";
 }
 
 function hideCard() {
-  currentCardStopId = null;
   if (card) card.style.display = "none";
 }
 
-// Dismiss when tapping the map (Leaflet event)
-map.on("click", hideCard);
+function initTabCardSuppression() {
+  const tabMap = document.getElementById("tab-map");
+  const tabList = document.getElementById("tab-list");
+  if (!tabMap || !tabList) return;
 
-// Dismiss on mobile taps reliably (DOM event)
-map.getContainer().addEventListener("pointerdown", hideCard);
+  const onMap = () => setCardSuppressed(false);
+  const onList = () => setCardSuppressed(true);
+
+  // Use capture so it runs even if ui.js stops propagation
+  tabMap.addEventListener("click", onMap, true);
+  tabList.addEventListener("click", onList, true);
+
+  // Also react if ui.js changes aria-selected without click (defensive)
+  const mo = new MutationObserver(() => {
+    const mapSelected = tabMap.getAttribute("aria-selected") === "true";
+    setCardSuppressed(!mapSelected);
+  });
+  mo.observe(tabMap, { attributes: true, attributeFilter: ["aria-selected"] });
+}
+
+initTabCardSuppression();
 
 // Prevent taps inside the card from dismissing it via map/container handlers
 if (card) {
@@ -414,7 +414,7 @@ if (cardCloseBtn) {
   cardCloseBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
   cardCloseBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    hideCard();
+    setSelectedStop(null, "card-close");
   });
 }
 
@@ -423,9 +423,142 @@ if (cardFavBtn) {
   cardFavBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
   cardFavBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    toggleFavorite(currentCardStopId, cardFavBtn);
+    toggleFavorite(selectedStopId, cardFavBtn);
   });
 }
+
+// ---------------------------
+// Taco marker icons (default + selected)
+// ---------------------------
+function buildTacoSvg(variant = "default") {
+  const isSelected = variant === "selected";
+
+  // Subtle but unmistakable: slightly darker shell + thicker outline + tiny badge dot
+  const shellFillBack = isSelected ? "#EFAE3A" : "#F2B84B";
+  const shellFillFront = isSelected ? "#EFAE3A" : "#F2B84B";
+  const stroke = "#111";
+  const strokeW = isSelected ? "0.9" : "0.5";
+
+  const badge = isSelected
+    ? `<circle cx="25.2" cy="9.3" r="2.1" fill="#C0392B" stroke="${stroke}" stroke-width="0.6" />`
+    : "";
+
+  return `
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Left shell (back) -->
+      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
+            fill="${shellFillBack}"
+            stroke="${stroke}"
+            stroke-width="${strokeW}"
+            stroke-linejoin="round"/>
+      <!-- Ground beef -->
+      <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
+      <!-- Salsa -->
+      <circle cx="12.6" cy="13.4" r="4.05" fill="#C0392B"/>
+      <!-- Lettuce -->
+      <circle cx="14.2" cy="12.0" r="3.645" fill="#4CAF50"/>
+      <!-- Right shell (front), shifted right by 4 -->
+      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
+            transform="translate(4 0)"
+            fill="${shellFillFront}"
+            stroke="${stroke}"
+            stroke-width="${strokeW}"
+            stroke-linejoin="round"/>
+      ${badge}
+    </svg>
+  `;
+}
+
+const defaultTacoIcon = L.divIcon({
+  className: "taco-marker",
+  html: buildTacoSvg("default"),
+  iconSize: [60, 60],
+  iconAnchor: [24, 30],
+});
+
+const selectedTacoIcon = L.divIcon({
+  className: "taco-marker",
+  html: buildTacoSvg("selected"),
+  iconSize: [60, 60],
+  iconAnchor: [24, 30],
+});
+
+// ---------------------------
+// Selection: central setter (single source of truth)
+// ---------------------------
+function findStopById(id) {
+  if (!id) return null;
+  return allStops.find((s) => s && s.id === id) || null;
+}
+
+function updateListSelectionHighlight() {
+  if (!listEl) return;
+
+  // Clear any existing
+  listEl
+    .querySelectorAll(".list-item.is-selected")
+    .forEach((el) => el.classList.remove("is-selected"));
+
+  if (!selectedStopId) return;
+
+  const q = `.list-item[data-stop-id="${safeEscape(selectedStopId)}"]`;
+  const row = listEl.querySelector(q);
+  if (row) row.classList.add("is-selected");
+}
+
+function setMarkerSelectedVisual(id, isSelected) {
+  const marker = markersById.get(id);
+  if (!marker) return;
+
+  marker.setIcon(isSelected ? selectedTacoIcon : defaultTacoIcon);
+  marker.setZIndexOffset(isSelected ? SELECTED_Z_INDEX_OFFSET : DEFAULT_Z_INDEX_OFFSET);
+}
+
+function setSelectedStop(stopId, source = "unknown") {
+  const nextId = stopId ? String(stopId) : null;
+  const prevId = selectedStopId;
+
+  if (prevId === nextId) {
+    // Still ensure list highlight/card match (e.g. after re-render)
+    updateListSelectionHighlight();
+    if (selectedStopId) {
+      const stop = findStopById(selectedStopId);
+      if (stop) showCard(stop);
+    } else {
+      hideCard();
+    }
+    return;
+  }
+
+  // Update state
+  selectedStopId = nextId;
+
+  // Revert previous marker
+  if (prevId) setMarkerSelectedVisual(prevId, false);
+
+  // Apply new marker selected visuals
+  if (selectedStopId) setMarkerSelectedVisual(selectedStopId, true);
+
+  // Sync list highlight
+  updateListSelectionHighlight();
+
+  // Open/close card
+  if (!selectedStopId) {
+    hideCard();
+  } else {
+    const stop = findStopById(selectedStopId);
+    if (stop) showCard(stop);
+    else hideCard(); // defensive
+  }
+}
+
+// Dismiss selection when tapping the map (Leaflet event)
+map.on("click", () => setSelectedStop(null, "map-click"));
+
+// Dismiss on mobile taps reliably (DOM event)
+map.getContainer().addEventListener("pointerdown", () =>
+  setSelectedStop(null, "map-pointerdown")
+);
 
 // ---------------------------
 // Apply filters to BOTH views (map + list)
@@ -448,9 +581,12 @@ function applyFilters() {
     if (!shouldBeVisible && isOnMap) marker.removeFrom(map);
   }
 
-  // If the selected stop is now filtered out, close the card (simplest behavior)
-  if (currentCardStopId && !visibleIds.has(currentCardStopId)) {
-    hideCard();
+  // If selected stop is filtered out, clear selection (no stale UI)
+  if (selectedStopId && !visibleIds.has(selectedStopId)) {
+    setSelectedStop(null, "filters");
+  } else {
+    // Selection may still be visible; ensure highlight persists after list re-render
+    updateListSelectionHighlight();
   }
 }
 
@@ -478,6 +614,13 @@ function renderList(stops) {
   for (const stop of sorted) {
     const outer = document.createElement("div");
     outer.className = "list-item";
+    outer.dataset.stopId = stop.id || "";
+
+    // Clicking the row selects the stop (but does NOT toggle favorite)
+    outer.addEventListener("click", () => {
+      if (!stop.id) return;
+      setSelectedStop(stop.id, "list");
+    });
 
     const cardEl = document.createElement("div");
     cardEl.className = "vendor-card";
@@ -500,6 +643,7 @@ function renderList(stops) {
       </svg>
     `;
 
+    // Favorite toggles must NOT trigger selection
     fav.addEventListener("pointerdown", (e) => e.stopPropagation());
     fav.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -537,6 +681,9 @@ function renderList(stops) {
     outer.appendChild(cardEl);
     listEl.appendChild(outer);
   }
+
+  // After re-render, restore highlight if any
+  updateListSelectionHighlight();
 }
 
 // ---------------------------
@@ -619,43 +766,6 @@ function initFiltersUI() {
 }
 
 // ---------------------------
-// Taco marker icon (Leaflet divIcon w/ inline SVG)
-// ---------------------------
-function getTacoIcon() {
-  const svg = `
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Left shell (back) -->
-      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
-            fill="#F2B84B"
-            stroke="#2B1B10"
-            stroke-width="0.5"
-            stroke-linejoin="round"/>
-      <!-- Ground beef -->
-      <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
-      <!-- Salsa -->
-      <circle cx="12.6" cy="13.4" r="4.05" fill="#C0392B"/>
-      <!-- Lettuce -->
-      <circle cx="14.2" cy="12.0" r="3.645" fill="#4CAF50"/>
-      <!-- Right shell (front), shifted right by 4 -->
-      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
-            transform="translate(4 0)"
-            fill="#F2B84B"
-            stroke="#2B1B10"
-            stroke-width="0.5"
-            stroke-linejoin="round"/>
-    </svg>
-  `;
-
-  return L.divIcon({
-    className: "taco-marker",
-    html: svg,
-    iconSize: [60, 60],
-    // anchor scales proportionally with size
-    iconAnchor: [24, 30],
-  });
-}
-
-// ---------------------------
 // Data load + map markers
 // ---------------------------
 fetch("./stops.json")
@@ -667,7 +777,7 @@ fetch("./stops.json")
     allStops.forEach((stop) => {
       if (stop.lat == null || stop.lng == null) return;
 
-      const marker = L.marker([stop.lat, stop.lng], { icon: getTacoIcon() });
+      const marker = L.marker([stop.lat, stop.lng], { icon: defaultTacoIcon });
 
       if (stop.id) {
         markersById.set(stop.id, marker);
@@ -679,7 +789,7 @@ fetch("./stops.json")
       marker.on("click", (e) => {
         // Prevent the marker tap from also dismissing via the map/container handler
         if (e && e.originalEvent) e.originalEvent.stopPropagation();
-        showCard(stop);
+        if (stop.id) setSelectedStop(stop.id, "marker");
       });
     });
 
