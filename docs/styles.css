@@ -310,6 +310,17 @@ body {
   border: 0;
 }
 
+/* Selected list item highlight (sync w/ selectedStopId) */
+.list-item.is-selected .vendor-card {
+  border-color: rgba(17, 17, 17, 0.40);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.list-item.is-selected .vendor-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .list-item .vendor-card {
   padding: 12px;
 }
