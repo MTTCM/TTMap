@@ -734,6 +734,6 @@ button {
 
 /* Selected marker SVG has its own viewBox; let it size by iconSize */
 .taco-marker--selected svg {
-  width: 144px;
-  height: 64px;
+  width: 108px;
+  height: 48px;
 }
