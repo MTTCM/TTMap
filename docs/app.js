@@ -450,7 +450,11 @@ function buildBowlOnlySvg() {
   const redLattice = `redLattice_${suf}`;
 
   return `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 150"
+     aria-hidden="true"
+     preserveAspectRatio="xMidYMid meet"
+     style="width:100%;height:100%;display:block;">
   <defs>
     <path id="${trayShape}"
           d="M 30 40
@@ -506,8 +510,8 @@ function buildMarkerHtml({ withBowl }) {
 
   // Bowl aspect ratio preserved: 400/150 = 2.666...
   // Choose a width that looks like a “tray” under the taco without moving the taco.
-  const bowlW = 74; // px (tweakable)
-  const bowlH = Math.round((74 * 150) / 400); // preserves aspect (~28px)
+  const bowlW = 111; // px (tweakable)
+  const bowlH = Math.round((111 * 150) / 400); // preserves aspect (~28px)
 
   // Position bowl relative to the 60x60 taco box.
   // Negative left allows it to extend slightly wider than taco without changing anchor.
