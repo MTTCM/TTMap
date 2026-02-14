@@ -506,8 +506,8 @@ function buildMarkerHtml({ withBowl }) {
 
   // Bowl aspect ratio preserved: 400/150 = 2.666...
   // Choose a width that looks like a “tray” under the taco without moving the taco.
-  const bowlW = 150; // px (tweakable)
-  const bowlH = Math.round((150 * 150) / 400); // preserves aspect (~28px)
+  const bowlW = 74; // px (tweakable)
+  const bowlH = Math.round((74 * 150) / 400); // preserves aspect (~28px)
 
   // Position bowl relative to the 60x60 taco box.
   // Negative left allows it to extend slightly wider than taco without changing anchor.
