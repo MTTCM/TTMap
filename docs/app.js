@@ -487,7 +487,7 @@ function buildBowlOnlySvg() {
   <use href="#${trayShape}"
        fill="#ffffff"
        stroke="#000000"
-       stroke-width="4" />
+       stroke-width="6" />
 
   <g clip-path="url(#${trayClip})">
     <rect x="0" y="0" width="400" height="150"
@@ -516,7 +516,7 @@ function buildMarkerHtml({ withBowl }) {
   // Position bowl relative to the 60x60 taco box.
   // Negative left allows it to extend slightly wider than taco without changing anchor.
   const bowlLeft = Math.round((MARKER_PX - bowlW) / 2); // centers it
-  const bowlTop = 20; // lower half of the marker (tweakable)
+  const bowlTop = 12; // lower half of the marker (tweakable)
 
   const bowlLayer = withBowl
     ? `
