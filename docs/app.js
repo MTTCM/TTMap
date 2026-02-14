@@ -415,7 +415,11 @@ if (cardFavBtn) {
 
 // ---------------------------
 // Marker icons (default + selected)
+// Selected = same taco + bowl OVERLAY (bowl proportions preserved)
 // ---------------------------
+
+const MARKER_PX = 60; // match your existing taco marker size
+const MARKER_ANCHOR = [24, 30]; // keep existing anchor to avoid any shift
 
 function buildDefaultTacoSvg() {
   return `
@@ -438,106 +442,125 @@ function buildDefaultTacoSvg() {
   `;
 }
 
-/**
- * Selected icon = SAME taco geometry (so it never moves) + bowl/lattice added on top.
- * Tech stays the same: Leaflet divIcon with inline SVG.
- *
- * Key design choice: keep viewBox 0 0 32 32 so iconSize/iconAnchor match default exactly.
- * Bowl art is the user's 400x150 design scaled into 32x32 via a transform.
- */
-function buildSelectedTacoWithBowlSvg() {
-  // Scale the bowl art (400x150) into the 32x32 coordinate space.
-  // This preserves the taco's position because the taco is unchanged.
-  const sx = 32 / 400; // 0.08
-  const sy = 32 / 150; // ~0.21333
-
-  // Unique IDs (even though only one selected marker exists at a time)
-  const trayId = "trayShapeSel";
-  const clipId = "trayClipSel";
-  const pattId = "redLatticeSel";
-
-  // Stroke-width note:
-  // If we kept 3.5 from the 400x150 artwork, it would become too thin after scaling.
-  // Bump it up so it reads clearly at 60px icon size.
-  const bowlStroke = 12; // in 400x150 space, then scaled down by sx/sy
+function buildBowlOnlySvg() {
+  // Unique IDs to avoid any chance of collisions (even though only one selected marker exists)
+  const suf = "sel";
+  const trayShape = `trayShape_${suf}`;
+  const trayClip = `trayClip_${suf}`;
+  const redLattice = `redLattice_${suf}`;
 
   return `
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <!-- Tray shape in original 400x150 space -->
-        <path id="${trayId}"
-              d="M 30 40
-                 Q 200 92 370 40
-                 L 310 110
-                 L 90 110
-                 Z" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" aria-hidden="true">
+  <defs>
+    <path id="${trayShape}"
+          d="M 30 40
+             Q 200 92 370 40
+             L 310 110
+             L 90 110
+             Z" />
 
-        <clipPath id="${clipId}">
-          <use href="#${trayId}" />
-        </clipPath>
+    <clipPath id="${trayClip}">
+      <use href="#${trayShape}" />
+    </clipPath>
 
-        <!-- Red lattice pattern in original 400x150 space -->
-        <pattern id="${pattId}"
-                 patternUnits="userSpaceOnUse"
-                 width="56"
-                 height="56"
-                 patternTransform="rotate(45)">
-          <line x1="0"  y1="-200" x2="0"  y2="200"
-                stroke="#d32f2f" stroke-width="12"/>
-          <line x1="28" y1="-200" x2="28" y2="200"
-                stroke="#d32f2f" stroke-width="3"/>
-          <line x1="-200" y1="0"  x2="200" y2="0"
-                stroke="#d32f2f" stroke-width="12"/>
-          <line x1="-200" y1="28" x2="200" y2="28"
-                stroke="#d32f2f" stroke-width="3"/>
-        </pattern>
-      </defs>
+    <pattern id="${redLattice}"
+             patternUnits="userSpaceOnUse"
+             width="56"
+             height="56"
+             patternTransform="rotate(45)">
+      <line x1="0"  y1="-200" x2="0"  y2="200"
+            stroke="#d32f2f" stroke-width="12" stroke-linecap="butt"/>
+      <line x1="28" y1="-200" x2="28" y2="200"
+            stroke="#d32f2f" stroke-width="3" stroke-linecap="butt"/>
 
-      <!-- Taco: IDENTICAL geometry to default icon (no movement) -->
-      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
-            fill="#F2B84B"
-            stroke="#2B1B10"
-            stroke-width="0.5"
-            stroke-linejoin="round"/>
-      <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
-      <circle cx="12.6" cy="13.4" r="4.05" fill="#C0392B"/>
-      <circle cx="14.2" cy="12.0" r="3.645" fill="#4CAF50"/>
-      <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
-            transform="translate(4 0)"
-            fill="#F2B84B"
-            stroke="#2B1B10"
-            stroke-width="0.5"
-            stroke-linejoin="round"/>
+      <line x1="-200" y1="0"  x2="200" y2="0"
+            stroke="#d32f2f" stroke-width="12" stroke-linecap="butt"/>
+      <line x1="-200" y1="28" x2="200" y2="28"
+            stroke="#d32f2f" stroke-width="3" stroke-linecap="butt"/>
+    </pattern>
+  </defs>
 
-      <!-- Bowl + lattice (scaled from 400x150 into this 32x32 space) -->
-      <g transform="scale(${sx} ${sy})">
-        <use href="#${trayId}"
-             fill="#ffffff"
-             stroke="#000000"
-             stroke-width="${bowlStroke}"
-             stroke-linejoin="round"/>
-        <g clip-path="url(#${clipId})">
-          <rect x="0" y="0" width="400" height="150" fill="url(#${pattId})"/>
-        </g>
-      </g>
-    </svg>
+  <use href="#${trayShape}"
+       fill="#ffffff"
+       stroke="#cccccc"
+       stroke-width="2" />
+
+  <g clip-path="url(#${trayClip})">
+    <rect x="0" y="0" width="400" height="150"
+          fill="url(#${redLattice})" />
+  </g>
+</svg>
+  `;
+}
+
+/**
+ * Layered marker HTML:
+ * - Taco stays exactly the same size/position as default (fills 60x60)
+ * - Bowl is absolutely positioned on top with preserved 400x150 aspect ratio
+ *
+ * You can tweak bowl placement by adjusting:
+ *   bowlW, bowlH, bowlLeft, bowlTop
+ */
+function buildMarkerHtml({ withBowl }) {
+  const tacoSvg = buildDefaultTacoSvg();
+
+  // Bowl aspect ratio preserved: 400/150 = 2.666...
+  // Choose a width that looks like a “tray” under the taco without moving the taco.
+  const bowlW = 74; // px (tweakable)
+  const bowlH = Math.round((74 * 150) / 400); // preserves aspect (~28px)
+
+  // Position bowl relative to the 60x60 taco box.
+  // Negative left allows it to extend slightly wider than taco without changing anchor.
+  const bowlLeft = Math.round((MARKER_PX - bowlW) / 2); // centers it
+  const bowlTop = 34; // lower half of the marker (tweakable)
+
+  const bowlLayer = withBowl
+    ? `
+      <div style="
+        position:absolute;
+        left:${bowlLeft}px;
+        top:${bowlTop}px;
+        width:${bowlW}px;
+        height:${bowlH}px;
+        pointer-events:none;
+        z-index:2;">
+        ${buildBowlOnlySvg()}
+      </div>
+    `
+    : "";
+
+  // Wrapper sets a stable anchor box (60x60). Overflow visible so bowl can extend.
+  return `
+    <div style="
+      position:relative;
+      width:${MARKER_PX}px;
+      height:${MARKER_PX}px;
+      overflow:visible;">
+      <div style="
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        z-index:1;">
+        ${tacoSvg}
+      </div>
+      ${bowlLayer}
+    </div>
   `;
 }
 
 const defaultTacoIcon = L.divIcon({
   className: "taco-marker",
-  html: buildDefaultTacoSvg(),
-  iconSize: [60, 60],
-  iconAnchor: [24, 30],
+  html: buildMarkerHtml({ withBowl: false }),
+  iconSize: [MARKER_PX, MARKER_PX],
+  iconAnchor: MARKER_ANCHOR,
 });
 
-// IMPORTANT: selected icon uses the SAME iconSize + iconAnchor as default
-// so the marker does not shift when swapping icons.
 const selectedTacoIcon = L.divIcon({
   className: "taco-marker",
-  html: buildSelectedTacoWithBowlSvg(),
-  iconSize: [60, 60],
-  iconAnchor: [24, 30],
+  html: buildMarkerHtml({ withBowl: true }),
+  // IMPORTANT: identical size + anchor so the marker never shifts
+  iconSize: [MARKER_PX, MARKER_PX],
+  iconAnchor: MARKER_ANCHOR,
 });
 
 // ---------------------------
