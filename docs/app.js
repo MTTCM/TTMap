@@ -474,7 +474,7 @@ function buildSelectedBowlSvg() {
     <path d="M 4 20 A 12 12 0 0 1 28 20 Z"
           fill="#F2B84B"
           stroke="#2B1B10"
-          stroke-width="0.5"/>
+          stroke-width="2"/>
 
     <circle cx="11" cy="14.8" r="4.5" fill="#7A4A2A"/>
     <circle cx="12.6" cy="13.4" r="4.05" fill="#C0392B"/>
@@ -490,7 +490,7 @@ function buildSelectedBowlSvg() {
   <use href="#trayShape"
        fill="#ffffff"
        stroke="#000000"
-       stroke-width="3.5"
+       stroke-width="6"
        stroke-linejoin="round"/>
 
   <g clip-path="url(#trayClip)">
@@ -505,16 +505,16 @@ const defaultTacoIcon = L.divIcon({
   className: "taco-marker",
   html: buildDefaultTacoSvg(),
   iconSize: [60, 60],
-  iconAnchor: [24, 30],
+  iconAnchor: [30, 30],
 });
 
 const selectedTacoIcon = L.divIcon({
   className: "taco-marker taco-marker--selected",
   html: buildSelectedBowlSvg(),
   // Slightly wider than default, but not a size explosion.
-  iconSize: [72, 32],
+  iconSize: [144, 64],
   // anchor near bottom-middle of the tray
-  iconAnchor: [36, 28],
+  iconAnchor: [72, 32],
 });
 
 // ---------------------------
